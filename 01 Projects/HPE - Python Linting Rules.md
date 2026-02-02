@@ -16,16 +16,19 @@ Create custom linting rules that can be used in ruff configuration to extend the
 - Implement custom ruff rules to enforce these standards
 - Create a reusable configuration that can be shared across HPE Python projects
 
-## Scope
+## Rule Ideas
 
-- Custom rule definitions for ruff
-- Documentation of HPE Python standards
-- Example configurations for common project types
+*Original brainstorm of possible rules to implement or find:*
+
+- No `str()` in logging (use lazy formatting)
+- Must use a logger (no print statements)
+- No re-raising exceptions without context
+- *(Add more rules as identified)*
 
 ## Tasks
 
 - [ ] Research ruff plugin/extension mechanisms
-- [ ] Document desired linting rules (what patterns to enforce/prevent)
+- [ ] Document full list of desired rules
 - [ ] Implement first custom rule as proof of concept
 - [ ] Test rules against existing codebase
 - [ ] Package for distribution across projects
