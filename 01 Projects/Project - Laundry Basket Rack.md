@@ -1,3 +1,9 @@
+---
+type: project
+status: active
+domain: personal
+---
+
 Goal: Create a nice rack for laundry baskets out of pallet wood
 
 Here is a clean example on [Etsy](https://www.etsy.com/listing/1652425580/6-tier-laundry-basket-holder-15-bushel)

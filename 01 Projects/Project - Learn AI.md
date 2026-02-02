@@ -1,5 +1,7 @@
 ---
 type: project
+domain: personal
+status: active
 ---
 # Project - Learn AI
 - [shimmy](https://github.com/Michael-A-Kuykendall/shimmy) - The Lightweight OpenAI API Server

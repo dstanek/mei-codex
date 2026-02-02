@@ -1,5 +1,7 @@
 ---
 type: project
+domain: personal
+status: active
 ---
 ## Winter Session
 I'm
