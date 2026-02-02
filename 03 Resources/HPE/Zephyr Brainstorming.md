@@ -1,6 +1,6 @@
 ---
-type: project
-status: active
+type: resource
+status: reference
 domain: hpe
 ---
 

@@ -1,6 +1,6 @@
 ---
 type: project
-status: active
+status: archived
 domain: personal
 ---
 

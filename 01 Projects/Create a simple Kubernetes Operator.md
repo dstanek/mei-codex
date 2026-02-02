@@ -2,7 +2,7 @@
 tags: [project]
 priority: 3
 domain: personal
-status: active
+status: backlog
 ---
 
 This is mostly just a learning exercise.
