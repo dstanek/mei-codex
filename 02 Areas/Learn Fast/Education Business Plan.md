@@ -2,6 +2,11 @@
 tags:
   - goals
 ---
+
+> **Quick Links**
+> - **Todoist:** [Learn Fast Project](https://app.todoist.com/app/project/6fgpCJHmFgJc7qx8) | [YouTube/Streaming](https://app.todoist.com/app/project/6fHh2xqrrWrg7g8x) | [Terraform Course](https://app.todoist.com/app/project/6fHh345hRgX9QrvX)
+> - **Related:** [[02 Areas/5 Year Goals|5 Year Goals]]
+
 # Goal #2: Education Business Plan
 
 ## Run a Successful Education Business

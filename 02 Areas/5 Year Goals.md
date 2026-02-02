@@ -15,8 +15,18 @@ In five years I:
 
 ### 2026 Goals
 
-- [[02 Areas/Learn Fast/Education Business Plan|Goal #2: Education Business Plan]] - Comprehensive 5-year plan to build Learn Fast into a $500k business
+- [[02 Areas/Learn Fast/Education Business Plan|Goal #2: Education Business Plan]] — Comprehensive 5-year plan to build Learn Fast into a $500k business
 
 ### Future
 
 *Add more detailed goal documents here as they are developed.*
+
+---
+
+## Active Tracking
+
+Track progress on goals in Todoist:
+
+- [Goal Setting Project](https://app.todoist.com/app/project/6fgpPc59QggqRX48) — Goal planning and review tasks
+- [Learn Fast Project](https://app.todoist.com/app/project/6fgpCJHmFgJc7qx8) — Education business tasks
+- [HPE > Career](https://app.todoist.com/app/project/6fh87g87cwJgW2fF) — Career development tasks
