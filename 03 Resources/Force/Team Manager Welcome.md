@@ -1,0 +1,59 @@
+Your responsibilities are:
+- populating the PM calendar
+- matchup attendance reminders
+- ref fees
+- handle common/easy questions
+
+## PM calendar
+
+[CASA website](https://system.gotsport.com/splash/12554/events/46853/schedules?team=3558273)
+
+[CAPS Spreadsheet](https://docs.google.com/spreadsheets/d/1hA1-5xhitZMy43_Wq6wueZ7APyZO8Ilu6hLhOGHhi_A/edit?gid=852009778#gid=852009778)
+
+## Matchup Attendance Reminders
+
+Please review the attendance for each match the Wednesday before hand and make sure there is more than seven players marked as attending. If not, then you'll have to send out a reminder message to the team about the upcoming match (doubt you'll have much trouble with this given the size of the roster for the team for indoor, this will become more apparent when we go outdoors). It is also possible that we might switch to a dual squad based system for indoor to allow more playing time for players but this would be between you and coach Scot. But as of now, we are still on the singular team system.
+
+  
+
+  
+
+•ref fees•
+
+The ref money is handled differently this season with a designated team Debit Card assigned to the Team Manager. If you have your card already then please go to a sheets gas station ATM (surcharge free) and collect the money according to the Force instructions laid out during your onboarding process. 
+
+  
+
+  
+
+•handle common/easy questions•
+
+Please handle all simple/easy-to-answer questions from both players and parents alike. If at any point you feel uncomfortable or unsure with the answer then please feel free to escalate the inquiry to Coach Scot. 
+
+  
+
+Please connect with coach Scot to become acclimated with each other. 
+
+  
+
+Please let me know if you have any questions. 
+
+  
+
+Cheers
+
+Jesse
+
+  
+
+PS
+
+If you do not have the team debit card yet or ref fees then please let me know ASAP as I need to get coach Scot the funds before Sunday.
+
+  
+
+|                                                                                                                                                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Jesse Acevedo<br><br>Professional Youth Soccer Trainer - Cleveland Force Soccer                                                                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |     |
+| ![CFSC](https://ci5.googleusercontent.com/proxy/77aT9X7MGUVsWyFO2PlMyrzJy16YeTtQS4GWeWmEJ4KNHEItl1ET-Xvc4Sp9HUNEiGy60hrhX0afT36yOQZMHnB13zum8wzrATi0hLqa-e56IfMCe6iZwDcpd2LOBQ=s0-d-e1-ft#http://drive.google.com/uc?export=view&id=1AdVLg9E_AicDMopCeLDOpDq9KrAYUY6d) | [jesseacevedo3@gmail.com](mailto:jesseacevedo3@gmail.com)<br><br> [26555 Richmond Rd - Bedford Hts - OH](https://email.cfsc.playmetrics.com/c/eJxMjr1u6zAMRp9G2q5BkbKVDBpyUQTZCvQN9EM5LizLtVQDffsi9tKFBzxn-aJNF8MDS7bKECHBFUg-rWeOJipOEMCra1TRG1aJEybtAI2cLAJqhUCKQGnovEE_xP4aPBHAxQgNIdXQrbP7ydy2KdQulCxn-2xtrYJuAu8C79mttRtLGWd-9Zek-5egNxz6vhfYI3xM4ZnLEs_nxL_j_ueYynaaR6t_yvvjgNZKD3Kzn1wru8A7x0JCw5jdNB97muVlF3RbtxK_Q5vKIpttgm6Za3Ujy93ibwAAAP__G0RWGw)<br><br> [https://clevelandforcesc.com/](https://clevelandforcesc.com/)<br><br>![Players First](https://ci6.googleusercontent.com/proxy/QmqQtDo-ERDFhNqqg9_jNq047xk7W9bw-QXaA3sq9f7Vx9VfodQQoLpKygnVTLZzFaR2GzY-WS4sKVzc9VBRaCGOB40A59QTTIqY-ClrPgKUpvHZnH0VLmDAEpy3fQ=s0-d-e1-ft#http://drive.google.com/uc?export=view&id=1QyGCcsCNC_6iWOVS9vV6dSqO6-zZLfMm) |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |     |
+| Commitment.Humility.Integrity.Respect.Passion                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [![facebook](https://ci6.googleusercontent.com/proxy/RYX5srtj6RwMWLtcIyzNvqR8x6xzVNDYhU9tScC7XVWkByEyf4W1UfUQG-yFR5Nrzx52wvm2t77XWLwggn3fQh62TGgxTi_qwZWD1Fuqn04-Lw0jlKRg1mg1ARZl1w=s0-d-e1-ft#http://drive.google.com/uc?export=view&id=17y2rDE0_Ixw_ncZeTkrZ5yS1zbUrMWyl)](https://www.facebook.com/ClevelandForceSC)[![instagram](https://ci6.googleusercontent.com/proxy/lIyj1DpkAfhvv6b7GWqwTpZp7cLCIHNf-WPKwYnomJVSYY8EMxpW118bQvXlzQKBR2v4kdM4TQWkIA90jxmB8_MHDVs1RnYpgsrce3Ogmv_8FnVp5oL9x8Zyzc73ug=s0-d-e1-ft#http://drive.google.com/uc?export=view&id=1f2b60IFtm-BXIaWYSvqr37Dfc5lfoKfa)](https://www.instagram.com/clevelandforcesc)[![twitter](https://ci3.googleusercontent.com/proxy/cRfqdZ76GLwyFzcKhWVDsQH7o74yhafIS1AuvCiG6BZK7hsKHTxZx_07SG01xhg8BrjgddYx_GVaPEzJc30FRFr-ae6XzYEDW--aYZ-4mtjqOC4cxmVxwtib-hDQUg=s0-d-e1-ft#http://drive.google.com/uc?export=view&id=1awgF9aSVjGDCPL6pl6goxSEPIfdGyYx6)](https://www.twitter.com/ClevForceSC) |     |

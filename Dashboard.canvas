@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"61951275f71856a7","type":"text","text":"## Needs Processed\n\n```dataview\nTABLE scope, status, \"Note Created\"\nFROM \"\"\nWHERE contains(file.tags, \"readwise_inbox\")\nSORT updated desc\n```","x":-358,"y":-500,"width":648,"height":420},
+		{"id":"bde782b6582915a3","type":"text","text":"## Projects\n\n### In progress\n```dataview\ntable priority, status, domain\nfrom \"01 Projects\"\nwhere status = \"in progress\"\nsort priority asc\n```\n### Backlog\n```dataview\ntable priority, status, domain\nfrom \"01 Projects\"\nwhere status = \"backlog\" or status = null\nsort priority asc\n```","x":360,"y":-500,"width":648,"height":880},
+		{"id":"2f3654ecab4e7f1b","type":"text","text":"## Untagged Notes\n```dataview\nLIST\nFROM \"\"\nWHERE !file.tags OR length(file.tags) = 0\n```","x":-358,"y":-60,"width":648,"height":440},
+		{"id":"023be2784a61108f","type":"text","text":"## Project To update\n```dataview\nLIST\nFROM \"01 Projects\"\nWHERE !type OR !status OR !priority OR !domain\n```\n\n","x":360,"y":400,"width":648,"height":400},
+		{"id":"6db231fdb9c869e9","type":"text","text":"## Content To Create\n```dataview\nTABLE content-type, status\nWHERE type = \"content-idea\"\n```","x":-358,"y":400,"width":648,"height":400}
+	],
+	"edges":[]
+}

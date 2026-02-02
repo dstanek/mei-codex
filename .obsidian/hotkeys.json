@@ -1,0 +1,38 @@
+{
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "typewriter-mode:typewriter-toggle": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "T"
+    }
+  ],
+  "workspaces:load": [
+    {
+      "modifiers": [
+        "Mod",
+        "Meta"
+      ],
+      "key": "7"
+    }
+  ],
+  "workspaces:save": [
+    {
+      "modifiers": [
+        "Mod",
+        "Meta"
+      ],
+      "key": "9"
+    }
+  ]
+}

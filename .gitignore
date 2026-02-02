@@ -1,0 +1,17 @@
+# Obsidian per-device workspace/layout
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Caches
+.obsidian/cache/
+.obsidian/graph.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# (Optional) If you use Syncthing/Dropbox etc and they create temp files
+*.tmp
+*.swp
+
+.obsidian/plugins/

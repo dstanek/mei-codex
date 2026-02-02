@@ -1,0 +1,1 @@
+Create a new obsidian vault for promotional stuff. Similar to what Greg suggested with a love me folder. And then hook up an AI to understand the criteria for the next level and use my nodes as guidelines for what to do next. Also, I could use this as part of my status report. 

@@ -1,0 +1,10 @@
+{
+  "cssTheme": "AnuPpuccin",
+  "theme": "system",
+  "enabledCssSnippets": [
+    "extended-colorschemes"
+  ],
+  "baseFontSize": 24,
+  "accentColor": "#7cb6f4",
+  "baseFontSizeAction": true
+}

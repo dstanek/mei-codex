@@ -1,0 +1,2 @@
+- 2 in the front perfectly vertical starting from the bottom 
+- 1 horizonal to the ground
