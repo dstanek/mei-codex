@@ -2,7 +2,7 @@
 title: <% tp.file.title %>
 type: project
 status: backlog
-domain: <% tp.system.suggester(["personal", "hpe", "cwru", "learn-fast"], ["personal", "hpe", "cwru", "learn-fast"], false, "Select domain:") %>
+domain: personal
 created: <% tp.file.creation_date("YYYY-MM-DD HH:mm") %>
 tags: []
 ---
