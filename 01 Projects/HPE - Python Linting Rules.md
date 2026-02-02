@@ -16,19 +16,16 @@ Create custom linting rules that can be used in ruff configuration to extend the
 - Implement custom ruff rules to enforce these standards
 - Create a reusable configuration that can be shared across HPE Python projects
 
-## Rule Ideas
+## Scope
 
-*Original brainstorm of possible rules to implement or find:*
-
-- No `str()` in logging (use lazy formatting)
-- Must use a logger (no print statements)
-- No re-raising exceptions without context
-- *(Add more rules as identified)*
+- Custom rule definitions for ruff
+- Documentation of HPE Python standards
+- Example configurations for common project types
 
 ## Tasks
 
 - [ ] Research ruff plugin/extension mechanisms
-- [ ] Document full list of desired rules
+- [ ] Document desired linting rules (what patterns to enforce/prevent)
 - [ ] Implement first custom rule as proof of concept
 - [ ] Test rules against existing codebase
 - [ ] Package for distribution across projects
@@ -37,6 +34,15 @@ Create custom linting rules that can be used in ruff configuration to extend the
 
 - [Ruff documentation](https://docs.astral.sh/ruff/)
 - [Writing custom rules](https://docs.astral.sh/ruff/contributing/plugins/)
+
+## Rule Ideas
+
+*Original brainstorm of possible rules to implement or find:*
+
+- No `str()` in logging (use lazy formatting)
+- Must use a logger (no print statements)
+- No re-raising exceptions without context
+- *(Add more rules as identified)*
 
 ## Notes
 
