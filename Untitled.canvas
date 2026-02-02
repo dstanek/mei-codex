@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"3d5400b00cf7f328","type":"file","file":"Arch Cheatsheet.md","x":420,"y":0,"width":400,"height":400},
+		{"id":"16cae5a00662d605","type":"text","text":"# test","x":-160,"y":0,"width":385,"height":230},
+		{"id":"cc48af2b755f4a30","type":"text","text":"![[Buddha Balance Serenity#Original Colors]]","x":-400,"y":-460,"width":720,"height":360}
+	],
+	"edges":[
+		{"id":"ec96f68134dd5d8b","fromNode":"16cae5a00662d605","fromSide":"right","toNode":"3d5400b00cf7f328","toSide":"left","color":"1"}
+	]
+}

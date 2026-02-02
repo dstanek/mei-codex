@@ -1,0 +1,6 @@
+- `:Go` - to toggle Goyo mode
+- `(` and `)` - to navigate between paragraphs
+- `z=` - suggest spelling correction
+- `[s` and `]s` - to move between misspelled words
+- `zg` - add to spelling dictionary
+- 

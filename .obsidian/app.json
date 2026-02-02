@@ -1,0 +1,12 @@
+{
+  "attachmentFolderPath": "./attachments",
+  "showUnsupportedFiles": true,
+  "vimMode": true,
+  "showInlineTitle": true,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "showLineNumber": false,
+  "readableLineLength": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00 Inbox"
+}

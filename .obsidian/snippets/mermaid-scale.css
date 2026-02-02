@@ -1,0 +1,22 @@
+ /* Ensure the container and SVG can use full width */
+.markdown-preview-view .mermaid,
+.markdown-source-view.mod-cm6 .mermaid {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Stretch SVG to container width */
+.markdown-preview-view .mermaid svg,
+.markdown-source-view.mod-cm6 .mermaid svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+/* Make it *visibly* bigger: scale the rendered diagram */
+.markdown-preview-view .mermaid svg,
+.markdown-source-view.mod-cm6 .mermaid svg {
+  transform: scale(1.25);
+  transform-origin: top left;
+}

@@ -1,0 +1,4 @@
+- [REMOTE- Sr. Backend Engineer (Python)](https://www.ziprecruiter.com/jobs/cybercoders-2c14eda8/remote-sr-backend-engineer-python-bd959be0?contact_id=73630d8b&zrclid=1c3b8c0c-230c-474e-89ac-56bb423583a3&utm_campaign=43024&lvk=LngoOogxEwrqwjLjn_v1YQ.--O0EueiBO-&expires=1761079422&tsid=111000153)
+- [Python/ML Developer](https://www.ziprecruiter.com/jobs/newscape-consulting-llc-77ad9e45/python-ml-developer-dad16a7f?expires=1761079422&lvk=l-EygCGJBE1Hg29OkvoONA.--O-3556hJk&contact_id=73630d8b&zrclid=fe54f320-b6d6-420f-9ec1-2bd8c7203e1b&utm_campaign=43024&tsid=111000153)
+- [Python Tutorial Writer](https://apply.workable.com/realpython/j/62F6107CD6/)
+- 
