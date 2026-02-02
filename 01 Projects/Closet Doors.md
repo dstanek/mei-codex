@@ -2,7 +2,7 @@
 type: [project]
 priority: 3
 domain: personal
-status: active
+status: backlog
 ---
 
 [Cool roll-up ideas](https://www.google.com/search?q=rollup+closet+door&oq=rollup+closet+door&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDMwODJqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#imgrc=ULnTQewQyyqlwM&imgdii=d6j-ZCaREr284M)

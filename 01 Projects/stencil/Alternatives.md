@@ -1,6 +1,6 @@
 ---
 type: project
-status: active
+status: backlog
 domain: personal
 ---
 
