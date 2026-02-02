@@ -1,6 +1,8 @@
 ---
 tags: [project]
 priority: 3
+domain: personal
+status: active
 ---
 
 This is mostly just a learning exercise.

@@ -1,3 +1,9 @@
+---
+type: project
+status: active
+domain: personal
+---
+
 # TODO Integrations
 
 1. Do something with [Life360](https://www.home-assistant.io/integrations/life360/)

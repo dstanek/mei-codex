@@ -1,3 +1,9 @@
+---
+type: project
+status: active
+domain: hpe
+---
+
 1. Split up the Helm charts
 	1. At a minimum API vs. Async
 	2. Maybe by other criteria

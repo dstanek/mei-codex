@@ -1,3 +1,9 @@
+---
+type: project
+status: active
+domain: personal
+---
+
 # Basic
 - convert action to project
 - reocurring actions
