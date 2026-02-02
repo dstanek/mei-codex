@@ -41,3 +41,4 @@ Create custom linting rules that can be used in ruff configuration to extend the
 ## Notes
 
 *Add implementation notes and decisions here as the project progresses.*
+
