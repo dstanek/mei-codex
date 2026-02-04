@@ -58,8 +58,10 @@ The Foundary is where ideas are forged into permanent notes.
 
 | Location | Pattern | Example |
 |----------|---------|---------|
-| Obsidian | `Project - {name}` | `Project - Homelab` |
-| Todoist | `{name}` under domain | `Homelab` under `Personal` |
+| Obsidian | `{name}.md` in `01 Projects/` | `Homelab.md` |
+| Todoist | `{name}` under domain parent | `Homelab` under `Personal` |
+
+The folder provides context — no need for a "Project - " prefix.
 
 ### Domains
 
