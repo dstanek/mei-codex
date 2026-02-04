@@ -1,8 +1,10 @@
 ---
-tags: [project]
+tags:
+  - project
 priority: 3
 domain: personal
 status: backlog
+type: project
 ---
 
 This is mostly just a learning exercise.
