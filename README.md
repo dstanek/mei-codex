@@ -25,12 +25,32 @@ This vault is my second brain, combining [PARA](https://fortelabs.com/blog/para/
 | 02 Areas | Ongoing responsibilities and goals |
 | 03 Resources | Reference materials |
 | 04 Archive | Completed/inactive projects |
+| 05 Foundary | Zettelkasten — atomic permanent notes |
 | 05 TCP Evidence | HPE promotion planning |
 | 07 Daily | Daily notes (optional) |
 | 08 Topics | Tag Notes — topic definitions with linked content |
 | 09 YT | YouTube content planning |
 | 99 Copilot | Prompt library |
 | 99 Meta | Templates, conventions, dashboards |
+
+## Zettelkasten (05 Foundary)
+
+The Foundary is where ideas are forged into permanent notes.
+
+### What goes here
+- Atomic notes (one idea per note)
+- Written in your own words
+- Linked to other notes and topics
+
+### What doesn't go here
+- Raw inputs (those go to Inbox)
+- Topic overviews (those go to 08 Topics)
+- Project-specific notes (those stay with projects)
+
+### How it connects
+- **08 Topics** link TO Foundary notes
+- **Foundary notes** link to each other
+- Ideas emerge from connections
 
 ## Projects
 
