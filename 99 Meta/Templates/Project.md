@@ -2,7 +2,7 @@
 title: <% tp.file.title %>
 type: project
 status: backlog
-domain: personal
+domain: <% tp.system.suggester(["personal", "hpe", "cwru", "learn-fast"], ["personal", "hpe", "cwru", "learn-fast"], false, "Select domain:") %>
 created: <% tp.file.creation_date("YYYY-MM-DD HH:mm") %>
 tags: []
 ---
@@ -19,3 +19,7 @@ tags: []
 
 ## Notes
 
+---
+
+> **GTD Reminder:** When changing status to `active`, create a next action in Todoist.
+> Use format: `{Project Name}: {Task}` under the appropriate domain project.
