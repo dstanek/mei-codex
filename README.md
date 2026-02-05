@@ -1,60 +1,138 @@
-Hi Emmett!
+# mei-codex
 
-This is where I'll document how that data is used an organized.
+David's Obsidian vault — a second brain for managing projects, goals, and knowledge.
 
-[Github repository](https://github.com/dstanek/mei-codex)
+[GitHub Repository](https://github.com/dstanek/mei-codex)
 
 ## About Me
 
-1. I am a husband and father of 4.
-2. I am a Principle Software Engineer at [HPE](https://www.hpe.com/). That is my full-time job.
-3. I teach Python programming to non-tech students (Business/Marketing/etc.) at Case Western Reserve University.
-4. I am working on launching an education business.
-5. I am a team manager for a club soccer team.
+1. Husband and father of 4
+2. Principal Software Engineer at [HPE](https://www.hpe.com/) (full-time)
+3. Python instructor at Case Western Reserve University
+4. Building an education business (Learn Fast)
+5. Team manager for a club soccer team
 
 ## Purpose
 
-This Obsidian vault is my second brain.
+This vault is my second brain, combining [PARA](https://fortelabs.com/blog/para/) with [Zettelkasten](https://zettelkasten.de/introduction/) principles.
 
 ## Organization
 
-I am using my own take that combines the [PARA method](https://fortelabs.com/blog/para/) with [Zettlekasten](https://zettelkasten.de/introduction/). I have been organizing my folders similar to PARA. The "99 Foundary" folder is where I will be putting my Zettelkasten notes.
+| Folder | Purpose |
+|--------|---------|
+| 00 Inbox | Unprocessed inputs — I process these myself |
+| 01 Projects | Active and backlog projects with domain tags |
+| 02 Areas | Ongoing responsibilities and goals |
+| 03 Resources | Reference materials |
+| 04 Archive | Completed/inactive projects |
+| 05 Foundary | Zettelkasten — atomic permanent notes |
+| 05 TCP Evidence | HPE promotion planning |
+| 07 Daily | Daily notes (optional) |
+| 08 Topics | Tag Notes — topic definitions with linked content |
+| 09 YT | YouTube content planning |
+| 99 Copilot | Prompt library |
+| 99 Meta | Templates, conventions, dashboards |
 
-| Name            | Description                                                                                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 00 Inbox        | There is where unprocessed notes will show up. They are to raw inputs into the system.                                              |
-| 01 Projects     | PARA style projects. See "Projects" below.                                                                                          |
-| 02 Areas        | PARA style areas.                                                                                                                   |
-| 03 Resources    | PARA style resources.                                                                                                               |
-| 04 Archive      | PARA style archive.                                                                                                                 |
-| 05 TCP Evidence | I am working toward a promotion at HPE. There is were I intend to plan and track my progress.                                       |
-| 06 Study        | I think that was a false start and these notes should be migrated to "99 Foundary".                                                 |
-| 07 Daily        | Daily notes should I ever start to actually write them.                                                                             |
-| 08 Topics       | I think this is similar to "06 Study".                                                                                              |
-| 09 YT           | A place for planning YouTube video content.                                                                                         |
-| 10 Notes        | I was thinking I would use this for Zettlekaster, but now I'm not sure. I'm open to suggestions on this structure vs "99 Foundary". |
-| 99 Copilot      | A sort of prompt library. Eventually, I would like to build an app. Maybe I need a project for this...                              |
-| 99 Foundary     |                                                                                                                                     |
-| 99 Meta         | Obsidian meta notes, like templates.                                                                                                |
+## Zettelkasten (05 Foundary)
+
+The Foundary is where ideas are forged into permanent notes.
+
+### What goes here
+- Atomic notes (one idea per note)
+- Written in your own words
+- Linked to other notes and topics
+
+### What doesn't go here
+- Raw inputs (those go to Inbox)
+- Topic overviews (those go to 08 Topics)
+- Project-specific notes (those stay with projects)
+
+### How it connects
+- **08 Topics** link TO Foundary notes
+- **Foundary notes** link to each other
+- Ideas emerge from connections
 
 ## Projects
 
-I really want to have a consistent organization and set of metadata for Projects. Ideally, i would like some way to differentiate between Personal, HPE, CWRU, and Learn Fast project. Probably an update to the dashboard to show them via a tag or other custom frontmatter.
+### Naming Convention
 
-## Where I need help
+| Location | Pattern | Example |
+|----------|---------|---------|
+| Obsidian | `{name}.md` in `01 Projects/` | `Homelab.md` |
+| Todoist | `{name}` under domain parent | `Homelab` under `Personal` |
 
-This is stuff I know I need help with:
-1. Project organization and metadata
-2. Overall organization
-3. Look for missing ideas and content that needs to be explored, e.g gaps in knowledge
-4. If I do something incorrectly or document something incorrectly, please call it out.
+The folder provides context — no need for a "Project - " prefix.
 
-**What I'm NOT looking for**
-1. I don't want you to process my "00 Inbox" unless I specifically ask for you to do something. The act of processing is how I learn and generate new ideas.
-2. I don't want you to auto generate a lot of notes. These notes should be things I come up with and describe how i see the world.
+### Domains
 
-## How to help
+Projects are tagged with a domain in frontmatter:
 
-Make discreet pull requests for me to look at. They don't necessarily need to be small pull requests, but the should be focused to one specific thing. For example, "reorganized projects" and "added a list of missing topics" are good because I can evaluate each one separately. We can collaborate in the pull requests comments about specific changes.
+| Domain | Description | Todoist Parent |
+|--------|-------------|----------------|
+| `personal` | Personal projects | Personal |
+| `hpe` | Work projects | HPE |
+| `cwru` | Teaching projects | CWRU |
+| `learn-fast` | Education business | Learn Fast |
 
-For commit messages use the 50/72 rule and prefix the subject line with "emmett: ".
+### Required Frontmatter
+
+```yaml
+---
+type: project
+status: active    # active, backlog, on-hold, archived
+domain: personal  # personal, hpe, cwru, learn-fast
+---
+```
+
+### GTD Next Actions Rule
+
+> **Every project with `status: active` must have at least one task with a due date in Todoist.**
+
+If an active project has no next action:
+1. Add a next action to Todoist, OR
+2. Change status to `backlog` or `on-hold`
+
+Use the **Project Dashboard** (`99 Meta/Project Dashboard.md`) to review active projects.
+
+## Todoist Integration
+
+Tasks link to this vault via naming convention:
+- Task format: `{Project Name}: {task description}`
+- Example: `Homelab: Setup shelf for nodes`
+
+This makes it easy to find related tasks and keeps both systems in sync.
+
+## Working with Emmett
+
+Emmett is my AI assistant who helps maintain this vault.
+
+### What Emmett Does
+
+- Creates PRs for organizational improvements
+- Monitors GTD compliance (active projects need next actions)
+- Suggests structural improvements
+- Executes tasks labeled with `Emmett` in Todoist
+
+### What Emmett Doesn't Do
+
+- Process the Inbox (I do that myself — it's how I learn)
+- Auto-generate content notes (those should be my thoughts)
+
+### How to Request Help
+
+1. Add a task in Todoist with the `Emmett` label
+2. Emmett checks every few hours and works on labeled tasks
+3. Results are reported via Telegram
+
+### Commit Convention
+
+Emmett's commits use the 50/72 rule and are prefixed with `emmett:`.
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `9Dashboard.md` | Dataview dashboard for GTD review |
+| `99 Meta/Conventions.md` | Detailed naming and organizational rules |
+| `99 Meta/Templates/` | Note templates |
+| `02 Areas/5 Year Goals.md` | Long-term goals |
