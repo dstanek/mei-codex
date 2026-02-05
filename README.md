@@ -132,7 +132,7 @@ Emmett's commits use the 50/72 rule and are prefixed with `emmett:`.
 
 | File | Purpose |
 |------|---------|
+| `9Dashboard.md` | Dataview dashboard for GTD review |
 | `99 Meta/Conventions.md` | Detailed naming and organizational rules |
-| `99 Meta/Project Dashboard.md` | Dataview dashboard for GTD review |
 | `99 Meta/Templates/` | Note templates |
 | `02 Areas/5 Year Goals.md` | Long-term goals |

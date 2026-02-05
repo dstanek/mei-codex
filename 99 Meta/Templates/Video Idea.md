@@ -37,12 +37,25 @@ if (title.startsWith("Untitled")) {
 title: <% title %>
 type: video-idea
 status: draft
+domain: personal
 created: <% tp.file.creation_date("YYYY-MM-DD HH:mm") %>
 tags: []
 ---
 
 # <% title %>
 
-your idea here...
+## Hook
+
+*What grabs attention in the first 5 seconds?*
+
+## Main Points
+
+- 
+
+## Call to Action
+
+*What should viewers do next?*
+
+---
 
 [[Content Ideas]]
