@@ -4,9 +4,9 @@ domain: personal
 status: active
 ---
 ## Winter Session
-I'm
+
 - [Force Spreadsheet](https://docs.google.com/spreadsheets/d/1BJmNalvNau7Q4hCboVLaZ2gDF2Y9FOaicifBuls-2ww/edit?gid=16821756#gid=16821756) for listing games
-- Winter [schedule](https://system.gotsport.com/org_event/events/46853/schedules?team=3558273)
+- Winter [GotSport schedule](https://system.gotsport.com/org_event/events/46853/schedules?team=3558273) or [Caps spreadsheet](https://docs.google.com/spreadsheets/d/1hA1-5xhitZMy43_Wq6wueZ7APyZO8Ilu6hLhOGHhi_A/edit?gid=2085897179#gid=2085897179)
 
 
 **AFTER A WITHDRAWAL:**
