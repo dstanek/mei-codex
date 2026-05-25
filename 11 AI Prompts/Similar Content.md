@@ -1,0 +1,1 @@
+Analyze the [type of doc] attached, list the key patterns in the structure and tone, then apply those patterns to my content below.
