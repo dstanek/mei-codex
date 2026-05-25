@@ -15,4 +15,11 @@ domain: personal
 
 ## Advanced
 - [better](https://github.com/Expensify/react-native-live-markdown) markdown editor 
-- email actions/4
+- email actions
+
+## Bugs
+- Deleting context doesn’t work
+- Save settings should flash a success messge
+- When adding a context it isn’t clear that it’s not immediately saved
+- Contexts should be sortable
+- Scrolling

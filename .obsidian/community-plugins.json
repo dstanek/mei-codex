@@ -4,9 +4,7 @@
   "readwise-official",
   "obsidian-style-settings",
   "settings-search",
-  "recent-files-obsidian",
   "url-into-selection",
-  "obsidian-reading-time",
   "obsidian-plugin-update-tracker",
   "nldates-obsidian",
   "obsidian-paste-image-rename",
@@ -16,5 +14,6 @@
   "typewriter-mode",
   "auto-note-mover",
   "obsidian-focus-mode",
-  "copilot"
+  "copilot",
+  "notebook-navigator"
 ]

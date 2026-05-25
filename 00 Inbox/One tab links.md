@@ -1,3 +1,7 @@
+## AI
+
+- 
+
 ## Case Western Reserve University
 -  [JupyterLite: Jupyter ❤️ WebAssembly ❤️ Python | by Jeremy Tuloup | Jupyter Blog](https://blog.jupyter.org/jupyterlite-jupyter-%EF%B8%8F-webassembly-%EF%B8%8F-python-f6e2e41ab3fa)
 -  [jupyterlite - Google Search](https://www.google.com/search?sca_esv=c98418866d524e71&sxsrf=ADLYWIKnboAIWNIjWD7f9SUXljefLua83A:1734720405984&q=jupyterlite&udm=7&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWwAFG7ranuZ26H8lR7pf_8AzBs6lnFFuPH6eU3OV27QJxgWOC2pYAfK469oms6rmuT0DrgO-z8kQP827bqZHgXPifb8ex7SqiUCGoRuZWJXeY1uNxcoAMC_f-nAraj5xf8COdvqs9MKDO76-egULliOzk-nkuJHDhQ2SAgJJATfRK6uvL6BjX8gUQdJLF4CMqAwDmwQ&sa=X&ved=2ahUKEwiP_NSMgbeKAxXcjYkEHaIdNyIQtKgLegQIFRAB&biw=2048&bih=1033&dpr=1#fpstate=ive&vld=cid:ddc04696,vid:-Jq0Qb39YPk,st:0)

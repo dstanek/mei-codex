@@ -4,7 +4,20 @@ type: meta
 
 # Conventions
 
-Standards for organizing projects and tasks across Obsidian and Todoist.
+Standards for organizing notes, projects, and tasks across Obsidian and Todoist.
+
+## Note Types
+
+Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.
+
+| Type | Template | Purpose |
+|------|----------|---------|
+| `zettel` | `Zettel.md` | Atomic permanent ideas with links and source |
+| `literature` | `Literature Note.md` | Book/article notes: summary, takeaways, quotes |
+| `project` | `Project.md` | Has `status` and `domain` fields; tracked in Todoist |
+| `topic` | `Topic.md` | Reference hub; Dataview shows backlinks |
+| `video-idea` | `Video Idea.md` | YouTube content; auto-names file `Video Idea - {title}` |
+| `meta` | — | Vault config and conventions |
 
 ## Project Naming
 
