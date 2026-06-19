@@ -1,3 +1,5 @@
 ---
-tags: ai
+tags:
+  - ai
+  - research
 ---
