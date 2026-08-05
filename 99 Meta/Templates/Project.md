@@ -2,8 +2,11 @@
 title: <% tp.file.title %>
 type: project
 status: backlog
-domain: <% tp.system.suggester(["personal", "hpe", "cwru", "learn-fast"], ["personal", "hpe", "cwru", "learn-fast"], false, "Select domain:") %>
+domain: <% tp.system.suggester(["personal", "hpe", "cwru", "learn-fast", "preheat-350", "paige-creations", "freelancing"], ["personal", "hpe", "cwru", "learn-fast", "preheat-350", "paige-creations", "freelancing"], false, "Select domain:") %>
+priority: <% tp.system.suggester(["1 — highest", "2", "3", "4 — lowest"], ["1", "2", "3", "4"], false, "Select priority:") %>
 created: <% tp.file.creation_date("YYYY-MM-DD HH:mm") %>
+todoist: 
+drive: 
 tags: []
 ---
 
@@ -17,13 +20,17 @@ tags: []
 
 - [ ] First task
 
+## Support Material
+
+*Material I write lives in this folder. Material I download lives in the Drive folder linked in `drive:` above.*
+
 ## Notes
 
 ---
 
-> **GTD Reminder:** When changing status to `active`, create a next action in Todoist.
-> Use format: `{Project Name}: {Task}` under the appropriate domain project.
----
-
-> **GTD Reminder:** When changing status to `active`, create a next action in Todoist.
-> Use format: `{Project Name}: {Task}` under the appropriate domain project.
+> **GTD Reminder:** When changing status to `active`, this project needs all three:
+> 1. A Todoist project under the domain parent, with a due-dated next action — `{Project Name}: {Task}`
+> 2. A Drive folder at `1. Projects/{Domain}/{Project Name}/`
+> 3. Both URLs pasted into `todoist:` and `drive:` above
+>
+> See [[Project Reconciliation]].

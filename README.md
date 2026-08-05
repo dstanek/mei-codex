@@ -28,6 +28,7 @@ Emmett is my AI assistant who helps maintain this vault.
 
 - Creates PRs for organizational improvements
 - Monitors GTD compliance (active projects need next actions)
+- Reconciles projects across Obsidian, Todoist, and Google Drive — reports findings, doesn't apply them unasked
 - Suggests structural improvements
 - Executes tasks labeled with `Emmett` in Todoist
 
@@ -50,8 +51,9 @@ Emmett's commits use the 50/72 rule and are prefixed with `emmett:`.
 
 | File | Purpose |
 |------|---------|
-| `9Dashboard.md` | Dataview dashboard for GTD review |
+| `Dashboard.canvas` | Dataview dashboard for GTD review |
 | `99 Meta/Conventions.md` | Detailed naming and organizational rules |
+| `99 Meta/Project Reconciliation.md` | Keeping projects in sync across Obsidian, Todoist, and Drive |
 | `99 Meta/Templates/` | Note templates |
 | `02 Areas/5 Year Goals.md` | Long-term goals |
 

@@ -1,7 +1,5 @@
 # Claude Code Instructions
 
-Read and follow the repository agent instructions in @AGENTS.md.
-
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What This Is
@@ -13,7 +11,7 @@ This is an Obsidian personal knowledge management (PKM) vault called "Mei Codex"
 | Folder | Purpose |
 |--------|---------|
 | `00 Inbox/` | Unprocessed capture bucket — notes land here before being filed |
-| `01 Projects/` | Active project notes |
+| `01 Projects/` | Active project notes — one directory per project, with an index note named after the folder |
 | `02 Areas/` | Ongoing areas of responsibility (Career, Learning, Financial, etc.) |
 | `03 Resources/` | Reference material and Readwise imports |
 | `04 Archive/` | Completed or abandoned projects |
@@ -23,6 +21,9 @@ This is an Obsidian personal knowledge management (PKM) vault called "Mei Codex"
 | `09 YT/` | YouTube content creation notes and research |
 | `99 Copilot/` | Custom prompts for the Obsidian Copilot plugin |
 | `99 Meta/Templates/` | Templater templates for all note types |
+| `99 Meta/Reports/` | Generated reconciliation reports |
 
 > For note types, project conventions, domains, and GTD rules, see [[99 Meta/Conventions]].
+
+> Projects span three systems — Obsidian, Todoist, and Google Drive. For how they bind and how to check they're in sync, see [[99 Meta/Project Reconciliation]].
 
