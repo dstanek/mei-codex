@@ -1,9 +1,0 @@
-- Free Guy
-- remember the titans
-- the convenant 
-- the system
-- the little giants
-- the reluctant fundamentalist
-- section 8
-- mr robot
-- Stick (Apple TV)

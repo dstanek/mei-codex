@@ -7,6 +7,17 @@ tags:
 > - **Todoist:** [Learn Fast Project](https://app.todoist.com/app/project/6fgpCJHmFgJc7qx8) | [YouTube/Streaming](https://app.todoist.com/app/project/6fHh2xqrrWrg7g8x) | [Terraform Course](https://app.todoist.com/app/project/6fHh345hRgX9QrvX)
 > - **Related:** [[02 Areas/5 Year Goals|5 Year Goals]]
 
+> [!warning] Status check — "Learn Terraform, Fast" is offline (verified 2026-08-05)
+> Every artifact of the Terraform course returns **404**:
+> - `leanpub.com/learnterraformfast` — the book itself
+> - `leanpub.com/course_admin/leanpub/learnterraformfast/store/pricing`
+> - `leanpub.com/course_admin/leanpub/learnterraformfast/help/getting_started`
+> - `github.com/dstanek/course-learn-terraform` — also 404 via authenticated API, so deleted or made private
+>
+> This matters because the plan below treats the Terraform course as the **Q2 2026 flagship**: *"LAUNCH Terraform course (target: mid-May)"*, a critical milestone dated `2026-05-15`, and a Q2 decision point asking *"Did the Terraform course launch successfully?"* That date has passed.
+>
+> I only verified that the URLs are dead — I can't tell whether the course was unpublished, renamed, moved off Leanpub, or never shipped. **The Q2 assessment and the Q4 year-end review both depend on knowing which.** The Todoist [Terraform Course](https://app.todoist.com/app/project/6fHh345hRgX9QrvX) project in Quick Links above may also be stale.
+
 # Goal #2: Education Business Plan
 
 ## Run a Successful Education Business
