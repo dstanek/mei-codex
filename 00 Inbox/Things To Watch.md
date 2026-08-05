@@ -1,3 +1,4 @@
+- [Zero to Agent in 30 Minutes](https://click.et.oreilly.com/?qs=ABB7InYiOjEsImQiOjQ5Mzl9AAcAAAAABBKgDFCTYN1UCrdB3DXvvmoTxbZuR1QwQ5fO8d__L4nKrOYysAOOgVQfCGw_FiQPtnJAwLn1fJJbuGdYxqQj0SJSphHQkEcTy7nMGcyWgeo)
 - [7 Boring But In Demand Online Jobs That Pay Really Well!](https://youtu.be/VTsZNLXfYIs?si=WBlynT58BeHFDl3A)
 - [you need to learn FFmpeg RIGHT NOW](https://youtu.be/6uB65PdasQI?si=jmzoOd7TNzBo7iCN)
 - [Master Claude Code: Proven Daily Workflows from 3 Technical Founders](https://youtu.be/hOqgFNlbrYE?si=lMewvuDU6sFxVMZY)

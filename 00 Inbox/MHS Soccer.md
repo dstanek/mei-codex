@@ -1,0 +1,3 @@
+**Tryouts and beyond:**  Tryouts are quickly approaching!  The coaches will run fitness testing on 7/31 from 6-8p followed by tryouts the next morning, 8/1 from 8-11a.  Both days at the hs soccer stadium, warm ups starting ~30 mins prior to listed start time.  Please wear a shirt with a number on the back, bring water and a ball.
+
+Attendance on both days is strongly encouraged so that the coaches can get the best idea of player placement and strengths.  Once the coaches have set the teams for the season, I will send them out asap!  Regular practices will begin Monday, August 3.
