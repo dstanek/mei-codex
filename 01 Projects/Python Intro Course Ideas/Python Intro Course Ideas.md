@@ -1,0 +1,15 @@
+---
+title: Python Intro Course Ideas
+type: project
+status: active
+domain: learn-fast
+priority:
+created:
+todoist: https://app.todoist.com/app/project/6h9XwpQ23qC5rx2m
+drive:
+tags: []
+---
+
+I'm going to create a course using Leanpub's platform . First, you need to define your course concept and create an outline. This will provide a clear framework for your course. Next, you should start working on the course material. This includes written content, images, and videos. Make sure that the information is presented in a clear and concise manner. In addition, you should structure your content in a way that it progressively builds upon the knowledge from previous sections, so that students can effectively learn and understand the material.
+
+Another important step would be to intermix learning materials with practical exercises or quizzes. This will allow students to put into practice what they have learned and test their understanding of the subject matter

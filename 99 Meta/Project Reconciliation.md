@@ -3,7 +3,7 @@ type: meta
 ---
 # Project Reconciliation
 
-How to check that active projects line up across Obsidian, Todoist, and Google Drive — and what to do when they don't.
+How to check that projects line up across Todoist, Obsidian, and Google Drive — and what to do when they don't.
 
 For naming, domains, and frontmatter, see [[Conventions]].
 
@@ -11,57 +11,77 @@ For naming, domains, and frontmatter, see [[Conventions]].
 
 | System | Owns | Holds |
 |--------|------|-------|
-| **Obsidian** | Existence, canonical name, `status`, `domain` | Support material I *write* |
-| **Todoist** | Tasks and next actions | Nothing else |
-| **Google Drive** | — | Support material I *download* |
+| **Todoist** | **The canonical list of projects.** Existence, status, next actions | Tasks |
+| **Obsidian** | My thinking about a project | Notes and ideas I *write* |
+| **Google Drive** | — | Material I *download* |
 
-> **Obsidian is authoritative.** Every active Obsidian project must have a Todoist project and a Drive folder. The reverse is not required — Todoist and Drive may hold things that never became Obsidian projects, and that is not a violation.
+> **Todoist is authoritative.** It decides what projects exist and whether they're active. Obsidian and Drive are supporting material, and both are optional — plenty of projects never need either.
+
+The consequence that matters: **an Obsidian project note pointing at a Todoist project that no longer exists is an error.** A Todoist project with no Obsidian note is not.
 
 ## Why the Three Trees Differ
 
 PARA is a *lifecycle* taxonomy (project / area / resource / archive). Domain is *orthogonal* to it. Encoding both in one folder tree forces a bad choice: domain-first duplicates PARA once per domain and fragments Areas; lifecycle-first dumps every domain into one bucket.
 
-Because a project note carries explicit `todoist:` and `drive:` URLs, **binding is by link, not by path** — so the trees don't need to match. Each system groups by the dimension it is actually good at:
+Because an Obsidian project note carries an explicit `todoist:` URL, **binding is by link, not by path** — so the trees don't need to match. Each system groups by the dimension it is actually good at:
 
 | System | Native strength | Groups by |
 |--------|-----------------|-----------|
+| Todoist | Parent-project nesting; no project-level metadata | **Domain.** One parent project per domain |
 | Obsidian | Frontmatter + Dataview — real facets | **Lifecycle.** Flat `01 Projects/`; domain lives in `domain:` |
-| Todoist | Parent-project nesting only; no project-level metadata | **Domain.** One parent project per domain |
 | Drive | Folders only — no query, no metadata | **Domain.** `1. Projects/{Domain}/` |
 
 Do not add domain folders to `01 Projects/`. Dataview already gives you per-domain views, and the Dashboard uses them.
 
-Drive's roots `5. Preheat to 350`, `6. Paige Stanek`, `7. Learn Fast`, and `8. Cabinet` are **Areas**, not Projects — they hold evergreen per-focus material (`Graphics`, `Videos`, `logos`, `shopify`). Project-scoped downloads belong under `1. Projects/{Domain}/`.
+Drive's numbered roots `5. Preheat to 350`, `6. Paige Stanek`, `7. Learn Fast`, and `8. Cabinet` are **Areas**, not Projects — they hold evergreen per-focus material. Project-scoped downloads belong under `1. Projects/{Domain}/`.
+
+> **Drive folders need no index file.** A Drive folder is a bucket for downloads. Nothing is required to be in it, and it needs no note, README, or manifest.
 
 ## Invariants
 
-> Every project in `01 Projects/` with `status: active` has both a `todoist` URL and a `drive` URL in its index note's frontmatter.
+> Every Todoist project sits directly under the parent matching its domain. Only the domain parents themselves live at top level.
 
-> Every project with `status: active` has at least one task with a due date in Todoist. *(the GTD rule from [[Conventions]])*
+> A domain parent holds **no tasks directly** — every task belongs to a real project, or to that domain's `One-Off` project. *(see [[Conventions#One-Off Tasks]])*
 
-> A project's Todoist project sits directly under the parent matching its `domain`, and its Drive folder sits directly under `1. Projects/{Domain}/`.
+> Every Todoist project with an active status has at least one task with a due date. *(the GTD rule from [[Conventions]])*
+
+> Every project note in `01 Projects/` has a `todoist:` URL that resolves to a live Todoist project.
 
 > Every project in `01 Projects/` is a **directory** containing an index note of the same name.
 
-The first invariant is checkable from the Dashboard — the **Projects Needing Reconciliation** pane should always be empty.
+`drive:` is optional everywhere — set it when the project has downloaded material, leave it empty otherwise.
+
+### On mirrored fields
+
+`status` and `domain` appear in Obsidian frontmatter so the Dashboard's Dataview panes work — Dataview can't reach Todoist.
+
+`domain` mirrors the Todoist parent, and Todoist wins on conflict. `status` has no Todoist equivalent, so it's derived: archived → `archived`, has a due-dated task → `active`, otherwise `backlog`/`on-hold`. See [[Conventions#Project Frontmatter]].
+
+Reconciliation reports drift and syncs Obsidian to match Todoist — never the reverse.
 
 ## The Procedure
 
 Run this end to end. It reads only. It never mutates anything.
 
-### 1. Collect the Obsidian side
-
-For every directory in `01 Projects/`, read its index note (`{Folder}/{Folder}.md`) and record `status`, `domain`, `todoist`, `drive`.
-
-Flag any directory with no index note, and any loose `.md` file sitting directly in `01 Projects/` — both are structural violations.
-
-### 2. Collect the Todoist side
+### 1. Collect the canonical side — Todoist
 
 ```
 mcp__todoist__get-overview     (no arguments)
 ```
 
-One call returns the entire project tree with IDs, names, and `parentId`. Nothing else is needed.
+One call returns the entire project tree with IDs, names, and `parentId`. This is the list of projects that exist.
+
+For the GTD check, per project:
+
+```
+mcp__todoist__find-tasks  filter: "##<Project Name> & !no date"
+```
+
+### 2. Collect the Obsidian side
+
+For every directory in `01 Projects/`, read its index note (`{Folder}/{Folder}.md`) and record `status`, `domain`, `todoist`, `drive`.
+
+Flag any directory with no index note, and any loose `.md` file sitting directly in `01 Projects/` — both are structural violations.
 
 ### 3. Collect the Drive side
 
@@ -71,11 +91,13 @@ One call returns the entire project tree with IDs, names, and `parentId`. Nothin
 search_files: parentId = '14Kt3GswyG0moflC5iLEG769Rov879PiA'
 ```
 
-That returns the per-domain subfolders. Then one query per domain subfolder to get its projects.
+That returns the per-domain subfolders. Then one query per domain subfolder.
+
+> The Drive connector can **create** folders but cannot move, rename, or delete them. Relocations have to be done by hand in the Drive UI — report them, don't attempt them.
 
 ### 4. Join
 
-Match on the frontmatter URLs first — the ID is the last path segment of each URL:
+Match on the frontmatter URLs — the ID is the last path segment:
 
 - `https://app.todoist.com/app/project/{id}`
 - `https://drive.google.com/drive/folders/{id}`
@@ -86,15 +108,16 @@ Match on the frontmatter URLs first — the ID is the last path segment of each 
 
 | Finding | Meaning | Remedy |
 |---------|---------|--------|
-| Missing Todoist project | Active project, no `todoist` and no name match | Create it under the domain parent; add a next action |
-| Missing Drive folder | Active project, no `drive` and no name match | Create `1. Projects/{Domain}/{Name}/` |
-| Unlinked, name matches | Counterpart exists but frontmatter is empty | Confirm, then backfill the URL |
-| Name drift | Bound, but names differ across systems | Pick the canonical name; rename the other two |
-| Wrong domain parent | Todoist project not under its domain parent, or Drive folder not under `1. Projects/{Domain}/` | Move it |
-| Duplicate Obsidian project | Two notes claim the same project | Merge; keep one |
-| No next action | Active project with no due-dated Todoist task | Add one, or drop to `backlog` / `on-hold` |
-| Malformed frontmatter | Missing/invalid `type`, `status`, `domain`, `priority` | Fix to match [[Conventions]] |
-| Orphan Todoist/Drive item | Exists there, not in Obsidian | **Informational only** — allowed by the contract |
+| **Dangling note** | Obsidian note's `todoist:` points at a project that no longer exists | Archive the note, or repoint it |
+| **Unlinked note** | Obsidian project note with no `todoist:` at all | Bind it, or move it out of `01 Projects/` — it's an idea, not a project |
+| Status drift | Obsidian `status`/`domain` disagrees with Todoist | Sync Obsidian to match Todoist |
+| No next action | Active Todoist project with no due-dated task | Add one, or change its status |
+| Orphan parent | Todoist project at top level that isn't a domain parent | Move under the right domain parent |
+| **Loose task** | Task sitting directly in a domain parent | Move to the owning project, or to that domain's `One-Off` |
+| Stalled project | Active Todoist project whose tasks are all long overdue or untouched | Reschedule, or drop out of active |
+| Name drift | Bound, but names differ across systems | Pick the canonical name; rename the others |
+| Structural | Loose file in `01 Projects/`, or a directory with no index note | Fix to match [[Conventions]] |
+| Missing note / folder | Todoist project with no Obsidian note or Drive folder | **Informational only** — both are optional |
 
 ### 6. Write the report
 
@@ -110,11 +133,10 @@ A clean run — zero actionable findings — is the goal state. If the run is ne
 
 ## Example: Creating a New Project
 
-Doing this correctly means the next reconciliation pass finds nothing.
+Todoist first, because Todoist decides what exists.
 
-1. **Obsidian** — create `01 Projects/Kitchen Remodel/Kitchen Remodel.md` from the `Project.md` template. Set `status: active`, `domain: personal`, `priority`.
-2. **Todoist** — create project `Kitchen Remodel` under the `Personal` parent. Add a next action with a due date: `Kitchen Remodel: Get contractor quotes`.
-3. **Drive** — create folder `1. Projects/Personal/Kitchen Remodel/`.
-4. **Back in Obsidian** — paste both URLs into `todoist:` and `drive:`.
+1. **Todoist** — create the project under its domain parent. Add a next action with a due date: `Kitchen Remodel: Get contractor quotes`.
+2. **Obsidian** *(optional)* — if you have thinking to capture, create `01 Projects/Kitchen Remodel/Kitchen Remodel.md` from the `Project.md` template and paste the Todoist URL into `todoist:`.
+3. **Drive** *(optional)* — if you'll be downloading material, create `1. Projects/{Domain}/Kitchen Remodel/` and paste its URL into `drive:`.
 
-Step 4 is the one that gets skipped. Without it the project is unreconcilable, and it will show up in the Dashboard pane until it's done.
+Steps 2 and 3 are genuinely optional. Step 1 is not — a project that isn't in Todoist doesn't exist.

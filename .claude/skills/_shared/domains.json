@@ -1,0 +1,93 @@
+{
+  "_comment": [
+    "Machine-readable IDs for the seven domains. The *rules* live in the vault:",
+    "  99 Meta/Conventions.md            - naming, frontmatter, statuses, the GTD rule",
+    "  99 Meta/Project Reconciliation.md - invariants, the reconcile procedure, finding types",
+    "This file holds only the opaque IDs those notes cannot express (Todoist parent IDs,",
+    "Drive folder IDs). If a domain is added or a parent project is recreated, edit this",
+    "file and the Domains table in Conventions.md together - nothing else needs to change."
+  ],
+
+  "paths": {
+    "projects_dir": "01 Projects",
+    "archive_projects_dir": "04 Archive/Projects",
+    "reports_dir": "99 Meta/Reports",
+    "project_template": "99 Meta/Templates/Project.md",
+    "conventions": "99 Meta/Conventions.md",
+    "reconciliation": "99 Meta/Project Reconciliation.md"
+  },
+
+  "statuses": ["active", "backlog", "on-hold", "archived"],
+
+  "drive": {
+    "projects_root_id": "14Kt3GswyG0moflC5iLEG769Rov879PiA",
+    "archive_projects_id": "1PNRF-4Fk8jPOjcgxt6NPQktD7KSMS9NX"
+  },
+
+  "_one_off_comment": [
+    "`one_off_project_id` is the domain's One-Off bucket - see the One-Off Tasks section",
+    "of Conventions.md. A domain parent holds no tasks directly; everything lives in a",
+    "real project or in that domain's One-Off. One-Off projects are permanent buckets,",
+    "so scripts skip them structurally: no GTD check, no stalled check, and never",
+    "reported as missing an Obsidian note or Drive folder. That exclusion is a rule, not",
+    "a preference, which is why it lives here and not in excluded_todoist_project_ids."
+  ],
+  "domains": {
+    "personal": {
+      "label": "Personal",
+      "todoist_parent_id": "6CrgJQx8x2Pj59Mq",
+      "one_off_project_id": "6hCvCx7PMCr5jCvX",
+      "drive_folder_id": "1nXCFdV5odms0IZNcI-W65PlYASwa3iXR"
+    },
+    "hpe": {
+      "label": "HPE",
+      "todoist_parent_id": "6VJV6WFQ8837mrgM",
+      "one_off_project_id": "6hCvGfxQmqXjg29v",
+      "drive_folder_id": "1iINWT9BIPwKq_6MF7NbwF-bHdKVPHHav"
+    },
+    "cwru": {
+      "label": "CWRU",
+      "todoist_parent_id": "6fCMPq9f4CVMGmP7",
+      "one_off_project_id": "6hCvGgw4Wjm43Hgj",
+      "drive_folder_id": "1KGdSZJ4iKBoje5EMyk1YwminYdAvfsiE"
+    },
+    "learn-fast": {
+      "label": "Learn Fast",
+      "todoist_parent_id": "6fgpCJHmFgJc7qx8",
+      "one_off_project_id": "6hCvGmRjJQHxPc7q",
+      "drive_folder_id": "1ykSWMTDwrePdWy1LkvFptTNFlYpovWFP"
+    },
+    "preheat-350": {
+      "label": "Preheat to 350",
+      "todoist_parent_id": "6fgpCGf5HC2WHrRv",
+      "one_off_project_id": "6hCvGjV4X9wgCwHc",
+      "drive_folder_id": "1yEzHGIOZs6qzHYT7KlhGblqOH9e2kzOZ"
+    },
+    "paige-creations": {
+      "label": "Paige Creations",
+      "todoist_parent_id": "6hCqPPfMC67j8cpJ",
+      "one_off_project_id": "6hCvGw6r958JC9Wq",
+      "drive_folder_id": "18Omxpp8bK5qp6U1BTGekySrk8nnL1maS"
+    },
+    "freelancing": {
+      "label": "Freelancing",
+      "todoist_parent_id": "6fwPWr428M6qVxrV",
+      "one_off_project_id": "6hCvGrP8JR9jjCPj",
+      "drive_folder_id": "19382M9SJrkcPflQxzSQqky8nHYTi5yhs"
+    }
+  },
+
+  "_excluded_comment": [
+    "The human's own opt-in suppressions: Todoist projects to leave out of the GTD and",
+    "stalled checks. Holding pens like 'Someday / Maybe' are indistinguishable from real",
+    "projects to a script, and would otherwise be reported as having no next action every",
+    "single day. Entries are {\"<todoist project id>\": \"why\"}. Every run reports what it",
+    "skipped and why, so nothing disappears silently.",
+    "This is a judgement call about what counts as a project - add to it only when the",
+    "human asks. Structural exclusions (One-Off) belong in the domains table instead."
+  ],
+  "excluded_todoist_project_ids": {
+    "6fRrh8F4mjQ5987P": "Personal › Someday / Maybe — holding pen, not a project",
+    "6VJRvvFRxRxpMgj2": "HPE › Someday/Maybe — holding pen, not a project"
+  }
+}

@@ -1,0 +1,3 @@
+# Python bytecode from the project-* helper scripts
+__pycache__/
+*.pyc

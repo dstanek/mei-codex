@@ -54,6 +54,44 @@ Consolidated backlog of everything queued to watch, read, or investigate. Replac
 | [Building A Programming Language From Its Core (with Peter Saxton)](https://www.youtube.com/watch?v=wuGx35UIKTk) | Languages | One tab links |
 | [Concepts App — YouTube channel](https://www.youtube.com/@ConceptsApp) | PKM / Sketchnoting | One tab links |
 | [Expert Playlist: LLMs Shortcuts](https://learning.oreilly.com/playlists/d91e0314-b4f6-4eb6-9cb5-19a50b23120d/) | AI / LLMs — O'Reilly playlist | One tab links |
+| [Code with Claude London 2026: Opening Keynote](https://youtu.be/6amLO7I9xdg) | AI / Agents | Todoist: Claude Code |
+| [Beyond the basics with Claude Code](https://youtu.be/tuY2ChJIx48) | AI / Agents | Todoist: Claude Code |
+| [Running an AI-native engineering org](https://youtu.be/IA5LWIGqnyM) | AI / Agents | Todoist: Claude Code |
+| [More from the platform](https://lnkd.in/ehsUBm55) | AI / Agents | Todoist: Claude Code |
+| [Prompting playbook](https://lnkd.in/ejfHFwq2) | AI / Agents | Todoist: Claude Code |
+| [Capability curve](https://lnkd.in/eMPGYqCJ) | AI / Agents | Todoist: Claude Code |
+| [Prompt to production](https://lnkd.in/eJhb8gnQ) | AI / Agents | Todoist: Claude Code |
+| [Google Cloud build](https://lnkd.in/eZQuUsgD) | AI / Agents | Todoist: Claude Code |
+| [Man Group case study](https://lnkd.in/eNQWxXMz) | AI / Agents | Todoist: Claude Code |
+| [Picking the right model](https://lnkd.in/ef9pdtgv) | AI / Agents | Todoist: Claude Code |
+| [Memory for agents](https://lnkd.in/eqSjDGdw) | AI / Agents | Todoist: Claude Code |
+| [Legal agents](https://lnkd.in/erCJJvUh) | AI / Agents | Todoist: Claude Code |
+| [Faster to production](https://lnkd.in/egyhdMUK) | AI / Agents | Todoist: Claude Code |
+| [Production-ready agent](https://lnkd.in/eYb5KKFX) | AI / Agents | Todoist: Claude Code |
+| [The thinking lever](https://lnkd.in/ef2p-Dft) | AI / Agents | Todoist: Claude Code |
+| [Lovable at scale](https://lnkd.in/eQcsDtDn) | AI / Agents | Todoist: Claude Code |
+| [Three unicorns](https://lnkd.in/efB8-G9W) | AI / Agents | Todoist: Claude Code |
+| [Scaling Base44](https://lnkd.in/e2NHXjJT) | AI / Agents | Todoist: Claude Code |
+| [Proactive agents](https://lnkd.in/ecPGXK2n) | AI / Agents | Todoist: Claude Code |
+| [Claude in Foundry](https://lnkd.in/epmWCMyd) | AI / Agents | Todoist: Claude Code |
+| [Spotify case study](https://lnkd.in/eYcVHin6) | AI / Agents | Todoist: Claude Code |
+| [Claude on AWS](https://lnkd.in/eJTPf2qe) | AI / Agents | Todoist: Claude Code |
+| [Stop babysitting agents](https://lnkd.in/e3QVyv4s) | AI / Agents | Todoist: Claude Code |
+| [What's new](https://lnkd.in/e3YdSEuN) | AI / Agents | Todoist: Claude Code |
+| [Build an agent harness](https://lnkd.in/ebC7NbUK) | AI / Agents | Todoist: Claude Code |
+| [Code for normal people](https://lnkd.in/emwZS5yS) | AI / Agents | Todoist: Claude Code |
+| [Claude Code (Beginner → Advanced)](https://lnkd.in/eX9prA4V) | AI / Agents | Todoist: Claude Code |
+| [Design with Code](https://lnkd.in/eZ6wSdJA) | AI / Agents | Todoist: Claude Code |
+| [Your 1st AI agent](https://lnkd.in/eG2-Fj6S) | AI / Agents | Todoist: Claude Code |
+| [Generative AI Fundamentals](https://www.databricks.com/resources/learn/training/generative-ai-fundamentals) | AI — course | Todoist: AI |
+| [Harvard CS50's Artificial Intelligence with Python – Full University Course](https://youtu.be/5NgNicANyqM) | AI / Python — course | Todoist: AI |
+| [Stop paying for ChatGPT with these two tools \| LMStudio x AnythingLLM](https://youtu.be/-Rs8-M-xBFI?si=Yzf62YcB2MX27R0h) | AI / LLMs | Todoist: AI |
+| [Run ALL Your AI Locally in Minutes (LLMs, RAG, and more)](https://youtu.be/V_0dNE-H2gw?si=wclwHyscQJrVdMvB) | AI / LLMs | Todoist: AI |
+| [Chapter 1 \| The Beauty of Graph Theory](https://youtu.be/oXcCAAEDte0?si=ngi4Vh0QRjMvzlsU) | Algorithms / Graph theory | Todoist: AI |
+| [Microservices and Kafka — Learn How in a Live Webinar](https://www.confluent.io/resources/online-talk/microservices-and-apache-kafka/) | Microservices — webinar | Todoist: Learning |
+| [The Strangler Pattern \| Designing Event-Driven Microservices](https://www.youtube.com/watch?v=BJiFd2KjRYs) | Microservices | Todoist: Learning |
+| [Master Microservices Strangler Pattern by Top AWS Experts](https://www.youtube.com/watch?v=DpuQ3-7e-rY) | Microservices | Todoist: Learning |
+| [FastAPI tutorials (playlist)](https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI) | Python / FastAPI | Todoist: Learning |
 
 ## Read — Articles & Deep Dives
 
@@ -91,6 +129,7 @@ The "How X Works" set is a single system-design series worth working through in 
 | [Prompt Engineering For Developers: 11 Concepts and Examples](https://dev.to/latitude/prompt-engineering-for-developers-11-concepts-and-examples-in0) | AI / Prompting | One tab links |
 | [Why reading whitepapers takes your career to the next level](https://read.highgrowthengineer.com/p/why-reading-whitepapers-takes-your) | Learning / Career | One tab links |
 | [Shell History Is Your Best Productivity Tool](https://martinheinz.dev/blog/110) | Shell / Productivity | One tab links |
+| [The ESP32 turned out to be the least intimidating way into a hobby that scared me for years](https://www.xda-developers.com/the-esp32-turned-out-to-be-least-intimidating-way-into-a-hobby/) | Homelab / Hardware | Todoist: Learning |
 
 > [!tip] Original note suggested creating a Todoist task per system-design article. If you still want that, the [[Conventions]] prefix would be `Learning: How X Works`.
 
@@ -106,6 +145,9 @@ The "How X Works" set is a single system-design series worth working through in 
 | [rytswd/get-gitops-k8s](https://github.com/rytswd/get-gitops-k8s) | GitOps on Kubernetes | Kubernetes | Things to look into |
 | [kedacore/keda](https://github.com/kedacore/keda) | Kubernetes event-driven autoscaling | Kubernetes | Things to look into |
 | [midday-ai/midday](https://github.com/midday-ai/midday) | Open-source invoicing, time tracking, file reconciliation & financial overview for freelancers (TypeScript/Next.js, 14.7k★, active) | Business tooling | One tab links |
+| [Claude Code plugins](https://code.claude.com/docs/en/plugins) | Official docs on authoring Claude Code plugins | AI / Agents | Todoist: AI |
+| [OpenSpec MCP server](https://mcpmarket.com/server/openspec) | MCP server for spec-driven development workflows | AI / Agents | Todoist: AI |
+| [Claude subagents — saved chat thread](https://claude.ai/chat/2fee64a7-3be2-4974-8ae3-6551f773d999) | Private Claude conversation to mine for subagent notes — only opens while logged in | AI / Agents | Todoist: AI |
 
 ## Entertainment — Movies & TV
 
@@ -164,6 +206,9 @@ Merged in and deleted on 2026-08-05. None had backlinks from other notes. To rec
 | `02 Areas/Learning/Videos To Watch.md` | n/a | Was an empty table |
 | `00 Inbox/Interesting Links.md` | n/a | Was an empty file |
 | `00 Inbox/One tab links.md` | Partial (18 of 72) | Dismantled link-by-link 2026-08-05 — see breakdown below |
+| `Todoist: Learning` | Full | 4 watch links + 1 article |
+| `Todoist: Claude Code` | Full | 29 watch links |
+| `Todoist: AI` | Partial (8 of 9) | 5 watch links + 3 investigate; 1 content idea left in Todoist |
 
 ### One tab links — full disposition
 
