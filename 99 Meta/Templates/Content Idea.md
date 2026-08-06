@@ -1,21 +1,43 @@
 <%*
 const file = tp.file;
+
+// --- Guard: never touch a note that already has content ---------------------
+// This template renders a whole note, so running it on an existing note
+// prepends a second frontmatter block and body. Two notes were damaged this way
+// (03 Resources/Watch & Read Queue, 09 YT/Content Ideas) before this guard.
+// "Create new note from template" gives an empty file; "Insert template" does not.
+let existingContent = null;   // null => the content API didn't answer
+try {
+    const c = file.content;
+    const v = (typeof c === "function" ? await c() : c);
+    existingContent = (v === undefined || v === null) ? null : String(v);
+} catch (e) {
+    existingContent = null;
+}
+
+// Fall back to file size, so a Templater API change can't silently re-open the hole
+if (existingContent === null) {
+    existingContent = (file.self?.stat?.size ?? 0) > 0 ? "non-empty" : "";
+}
+
+if (existingContent.trim()) {
+    new Notice("Content Idea only runs on a new, empty note. Use \"Templater: Create new note from template\".", 8000);
+    tR = "";
+    return;
+}
+// ---------------------------------------------------------------------------
+
 let title = file.title;  // current filename (without .md)
 
-// A fresh note gets filed automatically. An existing note is someone applying
-// this template to a note that already has a name and a home — never relocate
-// that without asking. (Doing so silently moved 03 Resources/Watch & Read Queue.)
-const isFresh = title.startsWith("Untitled");
-
 // Only prompt for a title if we're on a fresh Untitled note
-if (isFresh) {
+if (title.startsWith("Untitled")) {
     const input = await tp.system.prompt("Content idea title");
 
     // If user cancels or leaves blank -> delete this note and abort template
     if (!input || !input.trim()) {
         new Notice("No idea provided. Note will not be created.");
-        await app.vault.delete(file.self);  // remove the Untitled note
-        tR = "";                            // stop further template output
+        await app.vault.delete(file.self);  // safe: guard above proved it's empty
+        tR = "";
         return;
     }
 
@@ -25,12 +47,11 @@ if (isFresh) {
 // All content ideas live here, flat. content-type and status do the grouping.
 const targetFolder = "09 YT/Ideas";
 
-// Check for duplicates against the real destination, not the current folder.
-// Only a fresh note may be auto-deleted — never delete a note that already existed.
+// Check for duplicates against the real destination, not the current folder
 const existing = app.vault.getAbstractFileByPath(`${targetFolder}/${title}.md`);
 if (existing && existing.path !== file.path(true)) {
     new Notice(`A content idea with that title already exists: "${title}"`);
-    if (isFresh) await app.vault.delete(file.self);
+    await app.vault.delete(file.self);
     tR = "";
     return;
 }
@@ -46,18 +67,9 @@ const contentType = await tp.system.suggester(
 const source = (await tp.system.prompt("Source link (optional)") || "").trim();
 
 // File the note. Templater has no folder mapping for 09 YT, so this is what moves it.
-// Fresh notes file themselves. Existing notes must opt in — moving a note the user
-// already filed somewhere is destructive and must never happen by surprise.
-if (isFresh) {
+// Safe to move unconditionally: the guard above proved this note is empty.
+if (file.folder(true) !== targetFolder) {
     await file.move(`${targetFolder}/${title}`);
-} else if (file.folder(true) !== targetFolder) {
-    const confirm = await tp.system.suggester(
-        [`No — leave it in ${file.folder(true)}`, `Yes — move it to ${targetFolder}`],
-        [false, true],
-        false,
-        `Move "${title}" out of ${file.folder(true)}?`
-    );
-    if (confirm) await file.move(`${targetFolder}/${title}`);
 }
 -%>
 ---

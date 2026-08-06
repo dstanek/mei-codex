@@ -40,7 +40,9 @@ tags: []
 ---
 ```
 
-Create ideas with the `Content Idea.md` template — it prompts for title, content type, and source, then files the note into `09 YT/Ideas/` itself. It refuses blank titles and duplicates, deleting the stub note rather than leaving an `Untitled` behind.
+Create ideas with **Templater: Create new note from template** → `Content Idea`. It prompts for title, content type, and source, then files the note into `09 YT/Ideas/` itself. It refuses blank titles and duplicates, deleting the stub note rather than leaving an `Untitled` behind.
+
+> Use *Create new note from template*, **not** *Insert template*. This template renders a whole note — frontmatter and body — so inserting it into an open note prepends a second copy of both. The template now refuses to run on any note that isn't empty, but the right command avoids the situation entirely.
 
 ### Status lifecycle
 
