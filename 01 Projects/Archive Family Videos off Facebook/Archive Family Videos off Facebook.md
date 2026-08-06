@@ -55,7 +55,6 @@ If `--cookies-from-browser` fails (Chrome on Linux encrypts its cookie DB), expo
 
 - Facebook re-encodes uploads, so what you download is not the original camera file. If the phone or camera that shot this still has the original, **that's the better source** — check there first.
 - This is the argument for doing a sweep rather than a one-off: anything only on Facebook is one account-lockout away from gone.
-- Related: [[MHS Soccer]], [[MHS - 2025-26]].
 
 ---
 

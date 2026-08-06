@@ -3,10 +3,11 @@
   "showUnsupportedFiles": true,
   "vimMode": true,
   "showInlineTitle": true,
-  "promptDelete": false,
+  "promptDelete": true,
   "alwaysUpdateLinks": true,
   "showLineNumber": false,
   "readableLineLength": true,
   "newFileLocation": "folder",
-  "newFileFolderPath": "00 Inbox"
+  "newFileFolderPath": "00 Inbox",
+  "trashOption": "local"
 }

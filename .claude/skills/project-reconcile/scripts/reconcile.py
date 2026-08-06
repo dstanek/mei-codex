@@ -40,6 +40,7 @@ from vaultlib import (  # noqa: E402
     domain_parent_ids,
     find_vault_root,
     flatten_overview,
+    holding_pen_ids,
     load_config,
     load_remote,
     one_off_ids,
@@ -77,11 +78,10 @@ def build(args):
     domains = config["domains"]
     parent_ids = domain_parent_ids(config)
     one_offs = one_off_ids(config)
-    excluded = config.get("excluded_todoist_project_ids") or {}
-    # One-Off buckets are skipped by rule (Conventions.md), holding pens by the
-    # human's own choice. Both are exempt from the GTD and stalled checks; only
-    # the second is a preference, which is why they come from different places.
-    skip_checks = set(one_offs) | set(excluded)
+    # Each domain's One-Off bucket and its Someday / Maybe are skipped by rule
+    # (Conventions.md): neither ever completes, so the GTD and stalled checks
+    # cannot apply. There is no human-maintained exclusion list.
+    skip_checks = set(holding_pen_ids(config))
 
     for pid, node in td.items():
         node.update(resolve_domain(pid, td, config))
@@ -415,8 +415,8 @@ def build(args):
     for pid, node in td.items():
         if node.get("is_inbox") or pid in parent_ids or node["is_container"]:
             continue
-        if pid in one_offs:
-            continue  # One-Off never gets a note or a folder; not "missing" one
+        if pid in skip_checks:
+            continue  # holding pens never get a note or a folder; not "missing" one
         if notes_by_todoist.get(pid):
             continue
         hint = " (a note of the same name exists but is unbound)" if normal(node["name"]) in bound_note_names else ""
@@ -560,11 +560,11 @@ def render(F, counts, config, today, args, scan, drive_scanned,
             "Only due-dated tasks were collected, so §3 cannot tell an empty project from one "
             "whose tasks are all undated. Collect the `no date` sweep too for a full pass."
         )
-    excluded = config.get("excluded_todoist_project_ids") or {}
-    if excluded:
+    pens = holding_pen_ids(config)
+    if pens:
         caveats.append(
-            "Excluded from §3 and §4 by `_shared/domains.json`: "
-            + ", ".join(f"`{pid}` ({why})" for pid, why in excluded.items())
+            "Skipped in §3 and §4 by rule — permanent buckets that never complete: "
+            + ", ".join(f"`{pid}` ({why})" for pid, why in pens.items())
         )
     caveats.append(f"Stalled threshold: {args.stale_days} days.")
     for line in caveats:

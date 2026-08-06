@@ -41,6 +41,7 @@ from vaultlib import (  # noqa: E402
     domain_parent_ids,
     find_vault_root,
     flatten_overview,
+    holding_pen_ids,
     load_config,
     load_remote,
     one_off_ids,
@@ -48,6 +49,7 @@ from vaultlib import (  # noqa: E402
     resolve_domain,
     scan_projects,
     status_conflict,
+    task_deadline,
     task_due_date,
     today_utc,
 )
@@ -71,15 +73,17 @@ def build(args) -> tuple[str, dict]:
 
     remote = load_remote(args.remote)
     td_projects = flatten_overview(remote["overview"])
-    excluded = config.get("excluded_todoist_project_ids") or {}
     parent_ids = domain_parent_ids(config)
     one_offs = one_off_ids(config)
+    # Every holding pen minus the One-Off buckets, which get their own lane
+    # below: the per-domain Someday / Maybe pens, skipped by rule like the rest.
+    pens = {pid: why for pid, why in holding_pen_ids(config).items() if pid not in one_offs}
 
     # ---- Todoist side ---------------------------------------------------
     for pid, node in td_projects.items():
         node.update(resolve_domain(pid, td_projects, config))
         node["is_container"] = bool(node["child_ids"])
-        node["is_excluded"] = pid in excluded
+        node["is_holding_pen"] = pid in pens
         node["is_one_off"] = pid in one_offs
 
     tasks_by_project: dict[str, list] = defaultdict(list)
@@ -125,9 +129,9 @@ def build(args) -> tuple[str, dict]:
 
     # ---- classify -------------------------------------------------------
     # `tracked` is what the GTD and stalled checks apply to. One-Off buckets and
-    # the human's holding pens are deliberately not in it - they never complete,
-    # so calling them out every single morning is noise, not a finding. Their
-    # tasks still appear under upcoming and overdue, which is where they matter.
+    # the holding pens are deliberately not in it - they never complete, so
+    # calling them out every single morning is noise, not a finding. Their tasks
+    # still appear under upcoming and overdue, which is where they matter.
     tracked, containers, skipped, one_off_nodes = [], [], [], []
     for pid, node in td_projects.items():
         if node.get("is_inbox") or pid in parent_ids:
@@ -135,8 +139,8 @@ def build(args) -> tuple[str, dict]:
         if node["is_one_off"]:
             one_off_nodes.append(node)
             continue
-        if node["is_excluded"]:
-            skipped.append((node, excluded[pid]))
+        if node["is_holding_pen"]:
+            skipped.append((node, pens[pid]))
             continue
         if node["is_container"]:
             containers.append(node)
@@ -168,6 +172,36 @@ def build(args) -> tuple[str, dict]:
 
     overdue.sort(key=lambda r: (r["due"], r["project"] or "", r["content"] or ""))
     upcoming.sort(key=lambda r: (r["due"], r["domain"] or "zz", r["project"] or ""))
+
+    # -- Deadlines --------------------------------------------------------
+    # A separate lane on purpose. `task_due_date()` ignores `deadlineDate`, so a
+    # deadline-only task is invisible everywhere above and does not satisfy the
+    # GTD rule - which is correct (a deadline is a constraint, not a plan) but
+    # means it would otherwise never be reported at all. The `unplanned` flag is
+    # the finding that matters: a delivery date with no day set aside to hit it.
+    deadlines, deadlines_beyond = [], 0
+    horizon = today + timedelta(days=args.deadline_days)
+    for pid, tasks in tasks_by_project.items():
+        node = td_projects.get(pid, {"name": "(unknown project)", "domain": None})
+        for task in tasks:
+            dl = parse_date(task_deadline(task))
+            if not dl:
+                continue
+            if dl > horizon:
+                deadlines_beyond += 1
+                continue
+            due = parse_date(task_due_date(task))
+            deadlines.append({
+                "deadline": dl.isoformat(),
+                "days_left": (dl - today).days,
+                "due": due.isoformat() if due else None,
+                "unplanned": due is None,
+                "content": task.get("content"),
+                "project": node.get("name"),
+                "domain": node.get("domain"),
+                "task_id": task.get("id"),
+            })
+    deadlines.sort(key=lambda r: (r["deadline"], r["project"] or "", r["content"] or ""))
 
     no_next_action = []
     for node in tracked:
@@ -283,19 +317,24 @@ def build(args) -> tuple[str, dict]:
     analysis = {
         "today": today.isoformat(),
         "stale_days": args.stale_days,
+        "deadline_days": args.deadline_days,
         "counts": {
             "todoist_projects_tracked": len(tracked),
             "todoist_containers": len(containers),
-            "todoist_excluded": len(skipped),
+            "todoist_holding_pens": len(skipped),
             "obsidian_project_notes": len(vault_scan["scanned"]),
             "upcoming": len(upcoming),
             "overdue": len(overdue),
+            "deadlines": len(deadlines),
+            "deadlines_unplanned": sum(1 for d in deadlines if d["unplanned"]),
             "no_next_action": len(no_next_action),
             "stalled": len(stalled),
             "drift": len(drift),
         },
         "upcoming": upcoming,
         "overdue": overdue,
+        "deadlines": deadlines,
+        "deadlines_beyond_horizon": deadlines_beyond,
         "no_next_action": no_next_action,
         "stalled": stalled,
         "drift": drift,
@@ -303,7 +342,7 @@ def build(args) -> tuple[str, dict]:
         "unlinked_active_notes": [n["index_path"] for n in unlinked_active],
         "needs_task_fetch": needs_task_fetch,
         "containers": [{"name": n["name"], "id": n["id"], "domain": n["domain"]} for n in containers],
-        "excluded": [{"name": n["name"], "id": n["id"], "reason": why} for n, why in skipped],
+        "holding_pens": [{"name": n["name"], "id": n["id"], "reason": why} for n, why in skipped],
         "one_off": [{"name": n["name"], "id": n["id"], "domain": n["domain"]} for n in one_off_nodes],
         "signal_sources": sorted(sources_present),
     }
@@ -384,6 +423,36 @@ def render(a: dict, config: dict) -> str:
                 f"{esc(row['project'])} | {esc(row['domain'])} |")
         add("")
         add("</details>")
+    add("")
+
+    # -- Deadlines --------------------------------------------------------
+    add(f"## Deadlines — next {a['deadline_days']} days")
+    add("")
+    add("A **deadline** is when the outside world needs something; a **due date** is when "
+        "you plan to work on it. Only a due date satisfies the GTD rule, so nothing here "
+        "counts as a next action — see *Due dates vs. deadlines* in `99 Meta/Conventions.md`.")
+    add("")
+    if not a["deadlines"]:
+        add(f"No deadlines inside {a['deadline_days']} days.")
+        if a["deadlines_beyond_horizon"]:
+            add("")
+            add(f"{a['deadlines_beyond_horizon']} further out — `!no deadline` shows all of them.")
+    else:
+        unplanned = [d for d in a["deadlines"] if d["unplanned"]]
+        if unplanned:
+            add(f"**{len(unplanned)} of {len(a['deadlines'])} have no due date** — a delivery "
+                "date with no day set aside to hit it. Giving each one a due date is the fix.")
+            add("")
+        add("| Deadline | Left | Task | Project | Planned for |")
+        add("|---|---|---|---|---|")
+        for row in a["deadlines"]:
+            left = f"{row['days_left']}d" if row["days_left"] >= 0 else f"{-row['days_left']}d ago"
+            planned = row["due"] or "**nothing**"
+            add(f"| {row['deadline']} | {left} | {esc(row['content'])} | "
+                f"{esc(row['project'])} | {planned} |")
+        if a["deadlines_beyond_horizon"]:
+            add("")
+            add(f"{a['deadlines_beyond_horizon']} more beyond {a['deadline_days']} days.")
     add("")
 
     # -- No next action ---------------------------------------------------
@@ -472,10 +541,10 @@ def render(a: dict, config: dict) -> str:
             "grouping containers, not checked against the GTD rule: "
             + ", ".join(f"`{c['name']}`" for c in a["containers"])
         )
-    if a["excluded"]:
+    if a["holding_pens"]:
         notes.append(
-            "Excluded by `_shared/domains.json`: "
-            + ", ".join(f"`{e['name']}` ({e['reason']})" for e in a["excluded"])
+            "Skipped by rule — permanent buckets that never complete: "
+            + ", ".join(f"`{e['name']}` ({e['reason']})" for e in a["holding_pens"])
         )
     sources = a["signal_sources"]
     if "completed" not in sources or "activity" not in sources:
@@ -503,6 +572,8 @@ def main() -> int:
     ap.add_argument("--config", help="path to domains.json")
     ap.add_argument("--dir", dest="projects_dir", help="projects folder (default: 01 Projects)")
     ap.add_argument("--today", help="override today's date, YYYY-MM-DD")
+    ap.add_argument("--deadline-days", type=int, default=14,
+                    help="how far ahead to report deadlines (default 14)")
     ap.add_argument("--stale-days", type=int, default=14,
                     help="days of silence before a project counts as stalled (default 14)")
     ap.add_argument("--out", help="write the markdown draft here instead of stdout")

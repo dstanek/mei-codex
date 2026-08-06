@@ -41,8 +41,8 @@ upcoming, *and* which projects satisfy the GTD rule. Deliberately skip the
 of them, and you only need a few of those projects.
 
 `!no deadline` is a second, small sweep because the first one cannot see
-deadlines — `!no date` matches on due dates only. Report the results yourself;
-see *Deadlines* below.
+deadlines — `!no date` matches on due dates only. The script has its own lane for
+these; see *Deadlines* below.
 
 Write it all to a temp file in the envelope from REFERENCE.md.
 
@@ -98,6 +98,10 @@ a concrete physical action with a suggested due date:
   something with no completion condition — say so and propose `backlog`,
   `on-hold`, or moving it to `02 Areas/` instead of inventing an action for it.
   Conventions.md is explicit that an ongoing pursuit is an Area, not a project.
+  Spell out what the Area move actually costs: an Area has **no** Todoist
+  project, so its tasks have to be rehomed first — the ones with an end state to
+  a real project, the upkeep to that domain's `One-Off` — and only then is the
+  original project archived. Propose the rehoming, don't just name the folder.
 
 Format each as a short bullet list under the project name, with the domain and
 note path alongside. Two good candidates beat three where the third is filler.
@@ -119,6 +123,7 @@ when you assemble the final version.
 ## Options
 
 - `--stale-days N` — silence before a project counts as stalled. Default 14.
+- `--deadline-days N` — how far ahead deadlines are reported. Default 14.
 - `--today YYYY-MM-DD` — pin the date, for testing or backfilling.
 - `--out FILE` — write the draft instead of printing it.
 
@@ -132,19 +137,21 @@ neither is drift against the other. See REFERENCE.md for the table.
 
 ## Deadlines
 
-`review.py` has no deadline lane — `vaultlib.task_due_date()` ignores
-`deadlineDate` on purpose, so a deadline-only task arrives as an *undated* task
-and appears nowhere. Add a short **Deadlines** section to the report yourself,
-from the `!no deadline` sweep:
+`review.py` renders the **Deadlines** section itself from the `!no deadline`
+sweep — you don't assemble it by hand. It sorts by deadline, shows what each is
+planned for, and counts anything past the horizon. `--deadline-days N` moves the
+horizon (default 14).
 
-- Anything whose deadline falls inside the next two weeks, soonest first.
-- Flag every deadline-only task — a deadline with no due date is a delivery date
-  with no plan for meeting it. Propose a due date, which is the actual remedy.
-- A deadline does **not** satisfy the GTD rule, so a project can be correctly
-  reported as having no next action while holding a deadline next week. Say both
-  in the same breath when it happens; the combination is the urgent case.
+Two things to say out loud when reading it back:
 
-Keep it short — a table of two or three rows, or one line saying there are none.
+- **Deadline-only tasks.** The section marks these `**nothing**` under *Planned
+  for*, and leads with the count. A deadline with no due date is a delivery date
+  with no day set aside to hit it; the remedy is a due date, so propose one.
+- **A deadline never satisfies the GTD rule.** `vaultlib.task_deadline()` is
+  deliberately separate from `task_due_date()`, so a project can appear under
+  *no next action* while holding a deadline next week. That combination is the
+  urgent case — say both in the same breath rather than leaving them in
+  different sections.
 
 ## Waiting For
 
@@ -163,11 +170,11 @@ worth mentioning; a month is worth leading with.
 
 ## What's exempt
 
-`One-Off` buckets are skipped by rule — they're permanent buckets that never
-complete, so the GTD and stalled checks don't apply. Their tasks still appear
-under upcoming and overdue, which is where they matter.
+Every domain's `One-Off` bucket and its `Someday / Maybe` are skipped by rule —
+permanent buckets that never complete, so the GTD and stalled checks don't apply.
+Their tasks still appear under upcoming and overdue, which is where they matter.
 
-Holding pens like `Someday / Maybe` are skipped only because the user put them
-in `excluded_todoist_project_ids`. If a run surfaces another one, point out that
-the list exists and offer to add it — then leave the file alone unless they
-agree. It's their call what counts as a project.
+That's the whole exemption list, and it's structural. If a run surfaces
+something else that looks like a holding pen, the answer isn't to suppress it —
+it's that the project is probably an Area (no completion condition), so propose
+moving it to `02 Areas/`. Conventions.md is explicit about that test.

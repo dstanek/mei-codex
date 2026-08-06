@@ -18,7 +18,7 @@ Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.
 | `zettel`     | `Zettel.md`          | Atomic permanent ideas with links and source            |
 | `literature` | `Literature Note.md` | Book/article notes: summary, takeaways, quotes          |
 | `project`    | `Project.md`         | Directory with an index note; mirrored in Todoist and Drive |
-| `area`       | —                    | Ongoing responsibility with no completion condition; lives in `02 Areas/` |
+| `area`       | —                    | Ongoing responsibility with no completion condition; lives in `02 Areas/`, and has **no** Todoist project *(see [[#Areas]])* |
 | `topic`      | `Topic.md`           | Reference hub; Dataview shows backlinks                 |
 | `content-idea` | `Content Idea.md`  | Video/article/course ideas; lives in `09 YT/Ideas/`      |
 | `meta`       | —                    | Vault config and conventions                            |
@@ -124,7 +124,7 @@ Domains connect Obsidian projects to Todoist parents and Drive folders. This lis
 | Paige Creations (business) | `paige-creations` | Paige Creations | `1. Projects/Paige Creations/` |
 | Freelancing | `freelancing` | Freelancing | `1. Projects/Freelancing/` |
 
-Adding a domain means adding all four: the `domain:` value, a Todoist parent project, a `One-Off` child under it, and a `1. Projects/` subfolder.
+Adding a domain means adding all five: the `domain:` value, a Todoist parent project, a `One-Off` child under it, a `Someday / Maybe` child under it, and a `1. Projects/` subfolder.
 
 ## One-Off Tasks
 
@@ -156,6 +156,26 @@ This keeps the domain parent a pure container, so "projects under this domain" i
 ### Areas vs. Projects in Drive
 
 Drive's numbered roots `5. Preheat to 350`, `6. Paige Stanek`, `7. Learn Fast`, and `8. Cabinet` are **Areas** — evergreen per-focus material (`Graphics`, `Videos`, `logos`, `shopify`). Project-scoped downloads go under `1. Projects/{Domain}/`, not into these.
+
+## Someday / Maybe
+
+**Every domain has its own `Someday / Maybe`**, a child of the domain parent exactly like `One-Off`: things you might do and haven't committed to.
+
+> **Nothing in Someday / Maybe has a date.** A date is a commitment. If it has one, it belongs in a real project or a `One-Off`.
+
+Like `One-Off` it's a permanent bucket — it never completes, so the GTD rule, the stalled check and the missing-note check all skip it by rule, and it gets no Obsidian note and no Drive folder.
+
+Because the domain is carried by *where the item lives*, items need no domain prefix. The project-prefix rule in [[#When to use task prefixes]] still applies if an item clearly belongs to a named project.
+
+| Domain | `Someday / Maybe` project ID |
+|--------|------------------------------|
+| `personal` | `6fRrh8F4mjQ5987P` |
+| `hpe` | `6VJRvvFRxRxpMgj2` |
+| `cwru` | `6hF3VX9HhphWqwmV` |
+| `learn-fast` | `6hF3VX84FvRXJm86` |
+| `preheat-350` | `6hF3VX73rc7QM28H` |
+| `paige-creations` | `6hF3VX9h3gFjJ3WH` |
+| `freelancing` | `6hF3VX938w7wvjrX` |
 
 ## Project Frontmatter
 
@@ -205,6 +225,44 @@ Which means `status: active` with no due-dated task in Todoist is always a contr
 
 Ongoing pursuits — learning a subject, staying fit, managing a career — never complete, so the GTD rule can't apply to them. Filing them in `01 Projects/` produces permanently stalled projects that accumulate links instead of actions. Put them in `02 Areas/` with `type: area` instead.
 
+## Areas
+
+> **An Area has no Todoist project.** Its `todoist:` field stays empty — that's what distinguishes it from a project note, where the URL is required.
+
+Todoist is the canonical list of *projects*, and an Area isn't one. Giving an Area a Todoist project creates something that can never satisfy the GTD rule, so it either shows up as permanently stalled or has to be special-cased forever.
+
+An Area is a **directory with an index note of the same name**, the same layout as a project:
+
+```
+02 Areas/
+  Career/
+    Career.md           <- index note, type: area, todoist: empty
+    Improvements.md     <- support note
+```
+
+```yaml
+---
+title: Career
+type: area
+status: active     # active or archived — an Area is never backlog or on-hold
+domain: hpe        # one of the seven
+todoist:           # always empty
+drive:             # optional, same as projects
+tags: []
+---
+```
+
+**So where do the tasks go?** An Area doesn't hold tasks, because it isn't in Todoist. Its work surfaces as one of two things:
+
+| The work is | Goes to |
+|---|---|
+| A concrete push with an end state | A real Todoist project *(see [[#Creating a new project]])*. `Career` → the `Promotion` project |
+| Upkeep with no end state | That domain's `One-Off` *(see [[#One-Off Tasks]])* |
+
+The Area note is where the *thinking* lives — what you're aiming at, what you've learned, which projects have come out of it. Link them from the note.
+
+Because Areas live outside `01 Projects/`, reconciliation never scans them, so an empty `todoist:` is never reported as an unlinked note. That's the point: nothing to check, nothing to drift.
+
 ## Clarify
 
 One tree drains every inbox — `00 Inbox/`, the Todoist Inbox, and the mail and read-later queues in [[Tools Matrix]]. Processing an item means reaching one of the five outcomes below and then taking it out of the inbox.
@@ -218,7 +276,7 @@ One tree drains every inbox — `00 Inbox/`, the Todoist Inbox, and the mail and
 | It is | Goes to |
 |---|---|
 | Worth keeping | A note — `03 Resources/` for reference, `08 Topics/` for a hub, `05 Foundary/` if it's an idea worth forging |
-| Something you might do someday | `Someday / Maybe`. No due date, no note |
+| Something you might do someday | That domain's `Someday / Maybe` — no date, no note *(see [[#Someday / Maybe]])* |
 | Neither | **Delete it.** This is the outcome that keeps the other four honest |
 
 **Yes** — then how big is it?
@@ -234,6 +292,22 @@ One tree drains every inbox — `00 Inbox/`, the Todoist Inbox, and the mail and
 Every actionable outcome needs a domain, and it must be one of the seven *(see [[#Domains]])*. If you can't pick one, the item isn't clear enough to be actionable yet — sharpen it or let it go to Someday.
 
 Filing something to the wrong home is cheap to fix later. Leaving it in the inbox is not.
+
+## Labels
+
+> **A label answers "when *could* I do this?" — never "whose is it?"** Domain is the project's job; a label that repeats it is a second source of truth that nothing can check.
+
+That's why there are no `HPE` / `CWRU` / `Personal` labels. The domain parent already says it, and a task's domain is wherever the task lives.
+
+| Label | Means |
+|---|---|
+| `call` | Needs a phone call |
+| `Outdoors` | Needs to be outside, and probably dry |
+| `waiting` | Not yours to do *(see [[#Waiting For]])* |
+
+Name labels **without** the `@`. Todoist displays the `@` itself and filter syntax adds it, so a label literally named `@call` has to be queried as `@@call`.
+
+Keep the list short. A context earns a label only when you'd actually filter by it — if you've never once wanted "everything I could do while outside", that's a tag, not a context. `Emmett` exists as a delegation label but has never been used; it's kept, not endorsed.
 
 ## Waiting For
 
@@ -284,17 +358,18 @@ The practical consequences:
 - **Most tasks need no deadline at all.** Set it only when something outside you cares about the date.
 - Always move dates with `reschedule-tasks`. `update-tasks` replaces the whole due string and destroys recurrence.
 
-### Deadlines are not yet in the automated checks
+### How deadlines get checked
 
-The review and reconcile sweeps filter on `!no date`, which sees **due dates only**. A task carrying a deadline and no due date is invisible to them — it counts as undated.
+The `!no date` sweep sees **due dates only**, so a deadline-only task counts as undated for the GTD rule. That's intended — a project whose only date is a deadline has no plan — but it means deadlines need their own path. Two exist:
 
-Until that's fixed, one filter catches them:
+| Where | What it does |
+|---|---|
+| **Deadlines** filter (`!no deadline`) | Favourited in Todoist. Every task carrying a deadline, whenever it falls |
+| `/project-review` | A **Deadlines** section for the next 14 days, flagging any deadline with no due date as unplanned |
 
-```
-!no deadline
-```
+Neither turns a deadline into a next action. A project can legitimately show up under *no next action* while holding a deadline next week — that pairing is the urgent case, not a contradiction.
 
-`Raised Flower Beds` shows why this matters. *Make sure the existing structure is level* has a deadline of 2026-08-07 and no due date, while *Add a second layer* is due 2026-08-09 — so the review proposes the second layer and never mentions the levelling that has to happen first.
+`/project-reconcile` has no deadline finding, so a deadline-only task is silent there.
 
 ## Examples
 
@@ -312,7 +387,7 @@ Steps 3 and 4 are optional. Step 1 is not — a project that isn't in Todoist do
 ### Moving to backlog
 
 1. **Obsidian** — change `status: active` → `status: backlog`
-2. **Todoist** — remove due dates, or move tasks to Someday/Maybe
+2. **Todoist** — remove due dates, or move tasks to `Someday / Maybe` *(which takes no dates — see [[#Someday / Maybe]])*
 
 The `todoist` and `drive` URLs stay — they're still correct, just no longer required.
 

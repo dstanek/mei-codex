@@ -26,6 +26,10 @@ The short version, enough to act on before reading them:
   project with no note is not.
 - **Obsidian and Drive are optional.** Create a note when there's thinking to
   capture, a Drive folder when there's material to download. Never by default.
+- **An Area has no Todoist project**, and its `todoist:` stays empty — see *Areas*
+  in Conventions.md. So "move this to `02 Areas/`" always means retiring the
+  Todoist project too, after rehoming its tasks to a real project or a `One-Off`.
+  Areas live outside `01 Projects/`, so nothing scans them.
 - **Binding is by URL**, held in the note's frontmatter: `todoist:` (required on
   every project note) and `drive:` (optional). The ID is the last path segment.
   Name matching may only *propose* a binding for a human to confirm — never
@@ -57,15 +61,15 @@ The seven-domain enum is closed. IDs live in machine-readable form in
 `domains.json`, which is the only place they are written down — scripts read it,
 and this table is generated from the same values.
 
-| `domain:` | Todoist parent | `One-Off` child | Drive folder under `1. Projects/` |
-|---|---|---|---|
-| `personal` | `6CrgJQx8x2Pj59Mq` | `6hCvCx7PMCr5jCvX` | `1nXCFdV5odms0IZNcI-W65PlYASwa3iXR` |
-| `hpe` | `6VJV6WFQ8837mrgM` | `6hCvGfxQmqXjg29v` | `1iINWT9BIPwKq_6MF7NbwF-bHdKVPHHav` |
-| `cwru` | `6fCMPq9f4CVMGmP7` | `6hCvGgw4Wjm43Hgj` | `1KGdSZJ4iKBoje5EMyk1YwminYdAvfsiE` |
-| `learn-fast` | `6fgpCJHmFgJc7qx8` | `6hCvGmRjJQHxPc7q` | `1ykSWMTDwrePdWy1LkvFptTNFlYpovWFP` |
-| `preheat-350` | `6fgpCGf5HC2WHrRv` | `6hCvGjV4X9wgCwHc` | `1yEzHGIOZs6qzHYT7KlhGblqOH9e2kzOZ` |
-| `paige-creations` | `6hCqPPfMC67j8cpJ` | `6hCvGw6r958JC9Wq` | `18Omxpp8bK5qp6U1BTGekySrk8nnL1maS` |
-| `freelancing` | `6fwPWr428M6qVxrV` | `6hCvGrP8JR9jjCPj` | `19382M9SJrkcPflQxzSQqky8nHYTi5yhs` |
+| `domain:` | Todoist parent | `One-Off` child | `Someday / Maybe` child | Drive folder under `1. Projects/` |
+|---|---|---|---|---|
+| `personal` | `6CrgJQx8x2Pj59Mq` | `6hCvCx7PMCr5jCvX` | `6fRrh8F4mjQ5987P` | `1nXCFdV5odms0IZNcI-W65PlYASwa3iXR` |
+| `hpe` | `6VJV6WFQ8837mrgM` | `6hCvGfxQmqXjg29v` | `6VJRvvFRxRxpMgj2` | `1iINWT9BIPwKq_6MF7NbwF-bHdKVPHHav` |
+| `cwru` | `6fCMPq9f4CVMGmP7` | `6hCvGgw4Wjm43Hgj` | `6hF3VX9HhphWqwmV` | `1KGdSZJ4iKBoje5EMyk1YwminYdAvfsiE` |
+| `learn-fast` | `6fgpCJHmFgJc7qx8` | `6hCvGmRjJQHxPc7q` | `6hF3VX84FvRXJm86` | `1ykSWMTDwrePdWy1LkvFptTNFlYpovWFP` |
+| `preheat-350` | `6fgpCGf5HC2WHrRv` | `6hCvGjV4X9wgCwHc` | `6hF3VX73rc7QM28H` | `1yEzHGIOZs6qzHYT7KlhGblqOH9e2kzOZ` |
+| `paige-creations` | `6hCqPPfMC67j8cpJ` | `6hCvGw6r958JC9Wq` | `6hF3VX9h3gFjJ3WH` | `18Omxpp8bK5qp6U1BTGekySrk8nnL1maS` |
+| `freelancing` | `6fwPWr428M6qVxrV` | `6hCvGrP8JR9jjCPj` | `6hF3VX938w7wvjrX` | `19382M9SJrkcPflQxzSQqky8nHYTi5yhs` |
 
 `1. Projects/` root is `14Kt3GswyG0moflC5iLEG769Rov879PiA`.
 `4. Archive/Projects/` is `1PNRF-4Fk8jPOjcgxt6NPQktD7KSMS9NX`.
@@ -83,8 +87,12 @@ that look loose but aren't:
 
 `One-Off` projects are permanent buckets. They never complete, so the GTD rule
 and the stalled check don't apply, and they never get an Obsidian note or a
-Drive folder. The scripts skip them automatically from `domains.json` — that's a
-rule, so it does **not** go in `excluded_todoist_project_ids`.
+Drive folder. The scripts skip them automatically from `domains.json`.
+
+Each domain's `Someday / Maybe` (`someday_project_id`) is the same kind of thing,
+and sits under the domain parent just like `One-Off`. See *Someday / Maybe* in
+Conventions.md. Items there carry no date — a date means it's a commitment, so it
+belongs in a real project or a `One-Off` instead.
 
 URLs are built as `https://app.todoist.com/app/project/{id}` and
 `https://drive.google.com/drive/folders/{id}`.
@@ -157,12 +165,17 @@ Todoist's `due` and `deadline` are different fields — *when I'll work on it* v
 
 `vaultlib.task_due_date()` reads `dueDate`/`dueDatetime`/`due` and **ignores
 `deadlineDate` on purpose**: only a due date satisfies the GTD rule, because a
-deadline is a constraint rather than a plan to act.
+deadline is a constraint rather than a plan to act. `vaultlib.task_deadline()`
+reads the deadline instead, and the two are never folded together.
 
-The consequence to watch is that a deadline-only task reaches the scripts as an
-**undated** task — no crash, but it won't appear in overdue or upcoming, and it
-won't make its project pass the GTD check. Nothing in the scripts reports
-deadlines yet, so sweep `!no deadline` and surface them yourself.
+So a deadline-only task counts as **undated** for the GTD check — it won't appear
+in overdue or upcoming and won't make its project pass. That's intended, not a
+bug: a project whose only date is a deadline has a delivery date and no plan.
+
+`review.py` has a dedicated **Deadlines** lane that reports them anyway, sorted
+by deadline with an `unplanned` flag for the ones carrying no due date
+(`--deadline-days N`, default 14). `reconcile.py` does **not** — it has no
+deadline finding, so a deadline-only task is silent there.
 
 ### Waiting For
 
@@ -196,19 +209,18 @@ All take `--vault` (auto-detected otherwise) and `--config` (defaults to
 | `project-reconcile/scripts/reconcile.py` | Full reconciliation report |
 | `project-new/scripts/new_project_note.py` | Renders the Project template into `01 Projects/{Name}/{Name}.md` |
 
-## What gets skipped, and why the two lists differ
+## What gets skipped
 
-Three kinds of Todoist project are exempt from the GTD and stalled checks. They
-come from different places on purpose, and the distinction matters:
+Two kinds of Todoist project are exempt from the GTD and stalled checks, and
+both are structural — there is no human-maintained exclusion list, because
+*"does this ever complete?"* is not a judgement call:
 
-1. **`One-Off` buckets** — skipped **by rule**, read from `one_off_project_id`
-   in the domains table. Conventions.md says they never complete, so no code
-   change and no human opt-in is involved.
-2. **Holding pens** — `Someday / Maybe` and the like. Skipped **by the human's
-   choice**, via `excluded_todoist_project_ids`. Two are seeded there already.
-   Adding more is a judgement call about what counts as a project, so surface it
-   as a suggestion and leave the file alone unless the user agrees.
-3. **Grouping containers** — any project that has sub-projects. Detected
+1. **Holding pens** — every domain's `One-Off` bucket and its `Someday / Maybe`
+   (`one_off_project_id` and `someday_project_id` in the domains table), so
+   fourteen in all. `vaultlib.holding_pen_ids()` returns them with a reason
+   string; use it rather than assembling the set by hand. Neither kind ever
+   completes, so they also never get an Obsidian note or a Drive folder.
+2. **Grouping containers** — any project that has sub-projects. Detected
    structurally and reported separately.
 
 Every run prints what it skipped and why, so nothing disappears quietly. Tasks

@@ -410,14 +410,42 @@ def one_off_ids(config: dict) -> dict:
     These are permanent buckets, not projects (Conventions.md → One-Off Tasks).
     They never complete, so the GTD rule and the stalled check don't apply, and
     they never get an Obsidian note or Drive folder. Skipping them is a rule
-    rather than a preference, which is why it reads from the domains table and
-    not from the human's `excluded_todoist_project_ids`.
+    rather than a preference, which is why it reads from the domains table.
     """
     return {
         meta["one_off_project_id"]: domain
         for domain, meta in config["domains"].items()
         if meta.get("one_off_project_id")
     }
+
+
+def someday_ids(config: dict) -> dict:
+    """{someday_project_id: domain} for every domain that declares one.
+
+    Structural for the same reason One-Off is: a holding pen never completes, so
+    the GTD, stalled and missing-note checks cannot apply to it. Every domain has
+    its own, exactly like One-Off (Conventions.md → Someday / Maybe).
+    """
+    return {
+        meta["someday_project_id"]: domain
+        for domain, meta in config["domains"].items()
+        if meta.get("someday_project_id")
+    }
+
+
+def holding_pen_ids(config: dict) -> dict:
+    """{project_id: why} for every project exempt from project-level checks.
+
+    Each domain's One-Off bucket and its Someday / Maybe. All of it is by rule —
+    there is no human-maintained exclusion list, because "does this ever
+    complete?" is not a judgement call.
+    """
+    pens = {pid: f"`{domain}` One-Off bucket" for pid, domain in one_off_ids(config).items()}
+    pens.update({
+        pid: f"`{domain}` Someday / Maybe holding pen"
+        for pid, domain in someday_ids(config).items()
+    })
+    return pens
 
 
 def domain_parent_ids(config: dict) -> dict:
@@ -479,6 +507,29 @@ def task_due_date(task: dict) -> str | None:
             value = due.get(key)
             if isinstance(value, str) and value.strip():
                 return value.strip()[:10]
+    return None
+
+
+def task_deadline(task: dict) -> str | None:
+    """Extract a YYYY-MM-DD *deadline* from any of the shapes the API returns.
+
+    Deliberately separate from `task_due_date()`, and never folded into it: a due
+    date is when you plan to work on something, a deadline is when the outside
+    world needs it (Conventions.md → Due dates vs. deadlines). Only a due date
+    satisfies the GTD rule, so a deadline must not make a project look like it
+    has a next action.
+    """
+    for key in ("deadlineDate", "deadline_date"):
+        value = task.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()[:10]
+    deadline = task.get("deadline")
+    if isinstance(deadline, str) and deadline.strip():
+        return deadline.strip()[:10]
+    if isinstance(deadline, dict):
+        value = deadline.get("date")
+        if isinstance(value, str) and value.strip():
+            return value.strip()[:10]
     return None
 
 

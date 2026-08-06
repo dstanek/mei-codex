@@ -133,13 +133,13 @@ All are in the report's footnotes; repeat them if a finding surprises the user.
   nothing due-dated a reportable contradiction — the GTD rule restated. Todoist
   can't distinguish `backlog` from `on-hold`, so neither is drift against the
   other.
-- **`One-Off` buckets are skipped by rule** in the GTD, stalled, and
-  missing-note sections. They never complete and never get a note or folder, so
-  they aren't missing one.
-- **Holding pens** are skipped only because they're in
-  `excluded_todoist_project_ids`. Offer to add a new one; don't edit the file
-  unless the user agrees. A clean run is the goal state — a permanently noisy
-  report means the invariants or the process need fixing, not tolerating.
+- **Holding pens are skipped by rule** in the GTD, stalled, and missing-note
+  sections — every domain's `One-Off` bucket and its `Someday / Maybe`. They
+  never complete and never get a note or folder, so they aren't missing one.
+  There is no human-maintained exclusion list; if something else looks like a
+  holding pen it's probably an Area, so propose `02 Areas/` rather than
+  suppressing it. A clean run is the goal state — a permanently noisy report
+  means the invariants or the process need fixing.
 
 ## Related
 
