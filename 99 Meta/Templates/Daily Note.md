@@ -11,23 +11,24 @@ created: <% tp.file.creation_date() %>
 ---
 ## Weekly Review
 
-### 🗂 Capture & Collect
-- [ ] Gather loose papers, notes, and digital inputs.
-- [ ] Process Personal Gmail
-- [ ] Process Case Gmail
-- [ ] Process HPE Email
-- [ ] Process Obsidian Inbox
-- [ ] Process Evernote Inbox
+### 🗂 Capture & Clarify
 
-### ✅ Clarify & Update
-- [ ] Update projects and ensure each has a next action.
+Empty each one. Every item goes through the tree in [[99 Meta/Conventions#Clarify]] — nothing stays.
+
+- [ ] Todoist Inbox
+- [ ] Obsidian `00 Inbox/`
+- [ ] Personal Gmail
+- [ ] Case Gmail
+- [ ] HPE Email
+- [ ] Evernote Inbox
+- [ ] Loose paper and downloads
+
+### 📅 Calendar
 - [ ] Clean up your calendar (past week for follow-ups, upcoming week for prep).
 
-### 🔄 Reflect & Organize
-- [ ] Review Next Actions list (add/remove tasks).
-- [ ] Review Waiting For list (follow up if needed).
-- [ ] Review Projects list (ensure progress).
-- [ ] Review Someday/Maybe list (move anything actionable).
+### 🔄 Reflect
+- [ ] Run `/project-reconcile`, then work down the report.
+- [ ] Review the **Waiting For** filter — chase anything gone quiet.
 - [ ] Identify key priorities for the upcoming week.
 <%* } else if (tp.date.now("ddd") == "Sat") { %>
 ## 💭 Reflections

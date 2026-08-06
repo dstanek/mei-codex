@@ -29,6 +29,8 @@ Scripts can't call MCP tools, so you collect and the script computes.
 ```
 mcp__todoist__get-overview                          (no arguments)
 mcp__todoist__find-tasks   filter: "!no date"       (paginate on cursor)
+mcp__todoist__find-tasks   filter: "!no deadline"   (cheap — there are few)
+mcp__todoist__find-tasks   filter: "@waiting"       (cheap — delegated items)
 mcp__todoist__find-completed-tasks  since: <today minus stale-days>
 mcp__todoist__find-activity  objectType: "task", dateFrom: <today minus stale-days>
 ```
@@ -37,6 +39,10 @@ mcp__todoist__find-activity  objectType: "task", dateFrom: <today minus stale-da
 upcoming, *and* which projects satisfy the GTD rule. Deliberately skip the
 `no date` sweep here — undated task descriptions are long and there are hundreds
 of them, and you only need a few of those projects.
+
+`!no deadline` is a second, small sweep because the first one cannot see
+deadlines — `!no date` matches on due dates only. Report the results yourself;
+see *Deadlines* below.
 
 Write it all to a temp file in the envelope from REFERENCE.md.
 
@@ -123,6 +129,37 @@ due-dated task → `active`, otherwise `backlog`/`on-hold`). So `status: active`
 on a project with nothing due-dated is a genuine contradiction, and the script
 reports it. `backlog` and `on-hold` are interchangeable against Todoist, and
 neither is drift against the other. See REFERENCE.md for the table.
+
+## Deadlines
+
+`review.py` has no deadline lane — `vaultlib.task_due_date()` ignores
+`deadlineDate` on purpose, so a deadline-only task arrives as an *undated* task
+and appears nowhere. Add a short **Deadlines** section to the report yourself,
+from the `!no deadline` sweep:
+
+- Anything whose deadline falls inside the next two weeks, soonest first.
+- Flag every deadline-only task — a deadline with no due date is a delivery date
+  with no plan for meeting it. Propose a due date, which is the actual remedy.
+- A deadline does **not** satisfy the GTD rule, so a project can be correctly
+  reported as having no next action while holding a deadline next week. Say both
+  in the same breath when it happens; the combination is the urgent case.
+
+Keep it short — a table of two or three rows, or one line saying there are none.
+
+## Waiting For
+
+From the `@waiting` sweep, add a short section listing what's been waiting
+longest. `addedAt` is the best available age signal, since the label carries no
+timestamp of its own.
+
+The check that earns its place: **a `waiting` task does not count as a next
+action.** The scripts don't know the label, so a due-dated `waiting` task makes
+its project look healthy when it isn't. When a project's only due-dated task is
+one being waited on, say so explicitly and propose either an action the user can
+take or `on-hold`.
+
+Don't propose chasing something delegated two days ago. A week of silence is
+worth mentioning; a month is worth leading with.
 
 ## What's exempt
 

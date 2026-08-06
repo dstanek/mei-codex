@@ -137,6 +137,8 @@ non-ASCII.
 | `mcp__todoist__get-overview` (no args) | The whole project tree with IDs and `parentId`, in one call. Always start here |
 | `mcp__todoist__find-tasks` `filter: "!no date"` | Every task with a due date, across all projects. Answers overdue, upcoming, and the GTD rule at once |
 | `mcp__todoist__find-tasks` `filter: "no date"` | Every undated task. **Expensive** — descriptions are long. Only pull it when you actually need undated tasks |
+| `mcp__todoist__find-tasks` `filter: "!no deadline"` | Every task with a **deadline**. Cheap — there are few. The `!no date` sweep does *not* see these; see *Deadlines* below |
+| `mcp__todoist__find-tasks` `filter: "@waiting"` | Everything delegated or blocked on someone else. Cheap; see *Waiting For* below |
 | `mcp__todoist__find-tasks` `projectId: <id>` | One project's tasks. Prefer this over the `no date` sweep when you only care about a handful of projects |
 | `mcp__todoist__find-completed-tasks` `since`/`until` | Completions in a window — the strongest stalled signal |
 | `mcp__todoist__find-activity` `objectType: "task"`, `dateFrom` | Adds, updates, reschedules. Events carry `parentProjectId` |
@@ -147,6 +149,34 @@ non-ASCII.
 
 `find-tasks` paginates: keep calling with the returned `cursor` until
 `hasMore` is false, or you will silently analyse a partial list.
+
+### Deadlines
+
+Todoist's `due` and `deadline` are different fields — *when I'll work on it* vs
+*when the world needs it*. See *Due dates vs. deadlines* in Conventions.md.
+
+`vaultlib.task_due_date()` reads `dueDate`/`dueDatetime`/`due` and **ignores
+`deadlineDate` on purpose**: only a due date satisfies the GTD rule, because a
+deadline is a constraint rather than a plan to act.
+
+The consequence to watch is that a deadline-only task reaches the scripts as an
+**undated** task — no crash, but it won't appear in overdue or upcoming, and it
+won't make its project pass the GTD check. Nothing in the scripts reports
+deadlines yet, so sweep `!no deadline` and surface them yourself.
+
+### Waiting For
+
+A task labelled `waiting` is tracked, not done — the next move is someone
+else's. See *Waiting For* in Conventions.md.
+
+The scripts know nothing about the label, and that matters in one specific way:
+a `waiting` task with a due date **will** make its project look like it has a
+next action. It doesn't. If the only due-dated task in a project is a `waiting`
+one, report the project as having no next action and say why — the remedy is a
+task the human can act on, or `on-hold`.
+
+The three Today filters end in `& !@waiting`, so anything delegated is already
+excluded from the daily views by construction.
 
 > **Drive can create, but cannot move, rename, or delete.** Any relocation has
 > to be done by hand in the Drive UI. Report it; don't attempt it, and don't

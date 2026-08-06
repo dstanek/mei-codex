@@ -205,6 +205,55 @@ Which means `status: active` with no due-dated task in Todoist is always a contr
 
 Ongoing pursuits — learning a subject, staying fit, managing a career — never complete, so the GTD rule can't apply to them. Filing them in `01 Projects/` produces permanently stalled projects that accumulate links instead of actions. Put them in `02 Areas/` with `type: area` instead.
 
+## Clarify
+
+One tree drains every inbox — `00 Inbox/`, the Todoist Inbox, and the mail and read-later queues in [[Tools Matrix]]. Processing an item means reaching one of the five outcomes below and then taking it out of the inbox.
+
+> **Nothing goes back in.** An item you've looked at and left in place is an item you'll pay the same decision for next week.
+
+### Is it actionable?
+
+**No** — pick one and move on:
+
+| It is | Goes to |
+|---|---|
+| Worth keeping | A note — `03 Resources/` for reference, `08 Topics/` for a hub, `05 Foundary/` if it's an idea worth forging |
+| Something you might do someday | `Someday / Maybe`. No due date, no note |
+| Neither | **Delete it.** This is the outcome that keeps the other four honest |
+
+**Yes** — then how big is it?
+
+| Size | Goes to |
+|---|---|
+| Under two minutes | **Do it now**, and never write it down |
+| Someone else's move, not yours | Keep the task, label it `waiting` *(see [[#Waiting For]])* |
+| One action | That domain's `One-Off`, with a due date *(see [[#One-Off Tasks]])* |
+| Several actions, and you can say what "done" looks like | A project *(see [[#Creating a new project]])* |
+| Several actions, no completion condition | An Area — `02 Areas/` with `type: area` *(see [[#Project or Area?]])* |
+
+Every actionable outcome needs a domain, and it must be one of the seven *(see [[#Domains]])*. If you can't pick one, the item isn't clear enough to be actionable yet — sharpen it or let it go to Someday.
+
+Filing something to the wrong home is cheap to fix later. Leaving it in the inbox is not.
+
+## Waiting For
+
+Some tasks are real commitments where the next move belongs to someone else — a quote you asked for, a review you're blocked on, a package in transit. They aren't done, and they aren't yours to do.
+
+> A task labelled `waiting` is one you are **tracking, not doing**.
+
+| | |
+|---|---|
+| Label | `waiting` — filter syntax is `@waiting` |
+| Filter | **Waiting For**, favourited so it's in the sidebar |
+| Lives in | Its own project, exactly where it would otherwise sit. The label is the only change |
+
+Two rules keep it honest:
+
+- **Say who and when.** `Kitchen Remodel: Contractor quote` is untrackable. Put the person and the date you asked in the task — the whole value of the list is knowing when it's time to chase.
+- **A `waiting` task never satisfies the GTD rule.** If a project's only task is one you're waiting on, it has no next action. Either add one you *can* do, or move it to `on-hold` — that's what the status is for. Waiting is not progress.
+
+The three Today filters end in `& !@waiting`, so a delegated task drops out of your daily views and shows up only in Waiting For. Review it weekly *(see the Sunday block in `99 Meta/Templates/Daily Note.md`)*.
+
 ## GTD Rule
 
 > Every active Todoist project must have at least one task with a due date.
@@ -214,6 +263,38 @@ If an active project has no next action, either:
 2. Change status to `backlog` or `on-hold`
 
 The rule is about **Todoist**, since that's where projects live. Every project note in `01 Projects/` must also carry a `todoist` URL that resolves. See [[Project Reconciliation]] for how both get checked.
+
+### Due dates vs. deadlines
+
+Todoist has two date fields, and they mean different things. Using one for both jobs is what makes a Today view stop being trustworthy.
+
+| Field | Means | Set by |
+|---|---|---|
+| **Due** | *When I intend to work on this.* A plan, and mine to move | `dueString` — natural language (`"tomorrow"`, `"next Friday"`) |
+| **Deadline** | *When this is due to the outside world.* A constraint, not mine to move | `deadlineDate` — ISO 8601 (`"2026-08-14"`) |
+
+> Only **due** satisfies the GTD rule. A deadline is a fact about the world; a due date is a commitment to act.
+
+That's deliberate. A project whose only date is a deadline has a delivery date and no plan for meeting it — exactly the state the GTD rule exists to catch. Give it a due date and it passes honestly.
+
+The practical consequences:
+
+- **Rescheduling a due date is free.** It's a plan meeting reality. Moving a *deadline* is a real event — usually a conversation with someone.
+- **Don't put an external date in `due` just because it's a deadline.** Set `deadline` to the real date, then set `due` to the day you'll actually do the work. They're often weeks apart.
+- **Most tasks need no deadline at all.** Set it only when something outside you cares about the date.
+- Always move dates with `reschedule-tasks`. `update-tasks` replaces the whole due string and destroys recurrence.
+
+### Deadlines are not yet in the automated checks
+
+The review and reconcile sweeps filter on `!no date`, which sees **due dates only**. A task carrying a deadline and no due date is invisible to them — it counts as undated.
+
+Until that's fixed, one filter catches them:
+
+```
+!no deadline
+```
+
+`Raised Flower Beds` shows why this matters. *Make sure the existing structure is level* has a deadline of 2026-08-07 and no due date, while *Add a second layer* is due 2026-08-09 — so the review proposes the second layer and never mentions the levelling that has to happen first.
 
 ## Examples
 
