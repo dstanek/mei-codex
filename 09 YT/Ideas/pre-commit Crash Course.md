@@ -1,13 +1,15 @@
 ---
-title: Video Idea - pre-commit crash course
-type: video-idea
-status: draft
-domain: personal
+title: pre-commit Crash Course
+type: content-idea
+content-type: long video
+status: scripted
+domain: learn-fast
+source: ""
 created: 2026-03-10 18:11
 tags: []
 ---
 
-# Video Idea - Stop Committing Mistakes: A pre-commit Crash Course
+# Stop Committing Mistakes: A pre-commit Crash Course
 
 *(Target length: 3–5 min)*
 

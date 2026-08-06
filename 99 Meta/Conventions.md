@@ -20,8 +20,50 @@ Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.
 | `project`    | `Project.md`         | Directory with an index note; mirrored in Todoist and Drive |
 | `area`       | —                    | Ongoing responsibility with no completion condition; lives in `02 Areas/` |
 | `topic`      | `Topic.md`           | Reference hub; Dataview shows backlinks                 |
-| `video-idea` | `Video Idea.md`      | YouTube content; auto-names file `Video Idea - {title}` |
+| `content-idea` | `Content Idea.md`  | Video/article/course ideas; lives in `09 YT/Ideas/`      |
 | `meta`       | —                    | Vault config and conventions                            |
+
+## Content Ideas
+
+Every content idea is one note in `09 YT/Ideas/`, flat — no subfolders. `content-type` and `status` do the grouping, and Dataview assembles the views in [[Content Ideas]]. Same principle as projects: the folder is dumb, the frontmatter is smart.
+
+```yaml
+---
+title: Setup VSCode for Python Development
+type: content-idea
+content-type: long video    # short video, long video, article, course
+status: seed                # see lifecycle below
+domain: learn-fast
+source: "https://..."       # often the only thing filled in at capture
+created: 2025-12-10 12:50
+tags: []
+---
+```
+
+Create ideas with the `Content Idea.md` template — it prompts for title, content type, and source, then files the note into `09 YT/Ideas/` itself. It refuses blank titles and duplicates, deleting the stub note rather than leaving an `Untitled` behind.
+
+### Status lifecycle
+
+Mirrors the pipeline in [[YouTube Streaming]] — brainstorm, pick the best, research, script.
+
+| `status` | Meaning |
+|---|---|
+| `seed` | Captured. Often just a source link and a title. |
+| `selected` | Picked out of the pile as worth doing |
+| `researched` | Topic understood, outline exists |
+| `scripted` | Script written — ready to graduate |
+| `published` | Shipped |
+| `dropped` | Abandoned; kept so it doesn't get re-captured |
+
+`seed` vs. `researched` is the distinction that matters day to day, since an idea starts as a bare link and gets filled in over time.
+
+### Graduating an idea
+
+> An idea leaves `09 YT/Ideas/` when it reaches `scripted`.
+
+Move it into its series folder — `09 YT/{Series}/` — and add a link under that folder's `index.md` (`### Shorts` or `### Other Videos`). Script structure lives in [[Video Script Guide]], not in the idea note. The idea note carries `## Source` / `## Notes` / `## Outline`; the outline is the handoff.
+
+A series folder is created the first time two ideas share a subject. One-offs can stay in `09 YT/Ideas/` at `published`.
 
 ## Project Naming
 

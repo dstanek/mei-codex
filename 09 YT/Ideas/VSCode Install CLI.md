@@ -1,12 +1,23 @@
 ---
-title: Video Idea - VSCode Install cli
+title: VSCode Install CLI
 type: content-idea
 content-type: short video
-status: draft
+status: researched
+domain: learn-fast
+source: ""
 created: 2025-12-10 12:46
 tags: []
 ---
-## The Easy Way
+
+# VSCode Install CLI
+
+## Source
+
+*Own idea — no external source.*
+
+## Notes
+
+### The Easy Way
 
 1. **Open VS Code Insiders** from your Applications folder (double-click it)
 2. **Open the Command Palette**: Press `Cmd+Shift+P` (or `⇧⌘P`)
