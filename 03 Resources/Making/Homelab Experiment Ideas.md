@@ -15,6 +15,7 @@ Things worth trying in the homelab — services to stand up, configurations to t
 
 | Experiment | Why | Stack / Reference | Notes |
 | ---------- | --- | ----------------- | ----- |
+| Install and test Calibre Web | Browser-based access to the ebook library, and OPDS for reading on any device without syncing files around | [Calibre Web](https://github.com/janeczku/calibre-web) — Docker; needs an existing Calibre library (`metadata.db`) mounted read-write | Check whether it wants its own Calibre install or just the library dir. Worth comparing against [calibre-web-automated](https://github.com/crocodilestick/Calibre-Web-Automated) before committing |
 
 ## Tried
 
