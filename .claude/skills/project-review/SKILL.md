@@ -155,18 +155,22 @@ Two things to say out loud when reading it back:
 
 ## Waiting For
 
-From the `@waiting` sweep, add a short section listing what's been waiting
-longest. `addedAt` is the best available age signal, since the label carries no
-timestamp of its own.
+`review.py` renders the **Waiting For** section itself, longest-wait first, using
+`addedAt` as the age signal. It also keeps waiting tasks out of Upcoming and
+Overdue — they aren't yours to do.
 
-The check that earns its place: **a `waiting` task does not count as a next
-action.** The scripts don't know the label, so a due-dated `waiting` task makes
-its project look healthy when it isn't. When a project's only due-dated task is
-one being waited on, say so explicitly and propose either an action the user can
-take or `on-hold`.
+The rule is enforced in code: `actionable_due_date()` discounts `waiting`, so a
+due-dated delegated task cannot make its project look healthy. A project will
+correctly appear under *no next action* while holding an open `waiting` item.
 
-Don't propose chasing something delegated two days ago. A week of silence is
-worth mentioning; a month is worth leading with.
+What's left for you is the judgement the script can't make:
+
+- **Don't propose chasing something delegated two days ago.** A week of silence
+  is worth mentioning; a month is worth leading with. The `Waiting` column is
+  the number to read.
+- When a project shows up in both sections, say so in one breath — "blocked on
+  Dave since May, and nothing you can do meanwhile" is the actual finding, and
+  the remedy is usually `on-hold` rather than an invented task.
 
 ## What's exempt
 

@@ -324,9 +324,9 @@ Some tasks are real commitments where the next move belongs to someone else — 
 Two rules keep it honest:
 
 - **Say who and when.** `Kitchen Remodel: Contractor quote` is untrackable. Put the person and the date you asked in the task — the whole value of the list is knowing when it's time to chase.
-- **A `waiting` task never satisfies the GTD rule.** If a project's only task is one you're waiting on, it has no next action. Either add one you *can* do, or move it to `on-hold` — that's what the status is for. Waiting is not progress.
+- **A `waiting` task never satisfies the GTD rule**, whatever date it carries. If a project's only dated task is one you're waiting on, it has no next action — add one you *can* do, or move it to `on-hold`. Waiting is not progress. This is enforced, not just advised: `/project-review` and `/project-reconcile` both discount `waiting` tasks when deciding whether a project has a next action, and reconcile says so in the finding.
 
-The three Today filters end in `& !@waiting`, so a delegated task drops out of your daily views and shows up only in Waiting For. Review it weekly *(see the Sunday block in `99 Meta/Templates/Daily Note.md`)*.
+The three Today filters end in `& !@waiting`, so a delegated task drops out of your daily views and shows up only in Waiting For. `/project-review` makes the same split — waiting tasks are pulled out of Upcoming and Overdue into their own section, oldest first. Review it weekly *(see the Sunday block in `99 Meta/Templates/Daily Note.md`)*.
 
 ## GTD Rule
 

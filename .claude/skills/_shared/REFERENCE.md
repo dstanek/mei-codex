@@ -182,14 +182,20 @@ deadline finding, so a deadline-only task is silent there.
 A task labelled `waiting` is tracked, not done — the next move is someone
 else's. See *Waiting For* in Conventions.md.
 
-The scripts know nothing about the label, and that matters in one specific way:
-a `waiting` task with a due date **will** make its project look like it has a
-next action. It doesn't. If the only due-dated task in a project is a `waiting`
-one, report the project as having no next action and say why — the remedy is a
-task the human can act on, or `on-hold`.
+`vaultlib.is_waiting()` detects the label (tolerating a stray `@`), and
+`vaultlib.actionable_due_date()` is `task_due_date()` with `waiting` tasks
+returning None. **Use `actionable_due_date()` for anything that decides whether
+a project has a next action** — the GTD check, the derived status, the stalled
+check. Both scripts already do; `task_due_date()` remains for views that want
+the raw date someone promised.
 
-The three Today filters end in `& !@waiting`, so anything delegated is already
-excluded from the daily views by construction.
+So a `waiting` task never makes its project pass, however it is dated. Reconcile
+names the reason in the finding rather than reporting a bare "none due-dated" on
+a project that visibly has a dated task.
+
+`review.py` also pulls waiting tasks out of Upcoming and Overdue into their own
+**Waiting For** section, longest-wait first, using `addedAt` as the age signal —
+the same split the three Today filters make with `& !@waiting`.
 
 > **Drive can create, but cannot move, rename, or delete.** Any relocation has
 > to be done by hand in the Drive UI. Report it; don't attempt it, and don't

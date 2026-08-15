@@ -510,6 +510,39 @@ def task_due_date(task: dict) -> str | None:
     return None
 
 
+WAITING_LABEL = "waiting"
+
+
+def is_waiting(task: dict) -> bool:
+    """True when the task carries the `waiting` label — tracked, not done.
+
+    The next move belongs to someone else (Conventions.md → Waiting For). The
+    `@` is stripped before comparing so a label stored as `@waiting` still
+    matches; Todoist renders the prefix itself, and the name should not carry it.
+    """
+    labels = task.get("labels") or []
+    if isinstance(labels, str):
+        labels = [labels]
+    return any(
+        isinstance(name, str) and name.strip().lstrip("@").casefold() == WAITING_LABEL
+        for name in labels
+    )
+
+
+def actionable_due_date(task: dict) -> str | None:
+    """`task_due_date()`, but None for a `waiting` task.
+
+    This — not `task_due_date()` — is what the GTD rule, the derived status and
+    the stalled check must use. A delegated task carrying a due date would
+    otherwise make its project look like it has a next action when there is
+    nothing the human can actually do. Waiting is not progress.
+
+    The raw `task_due_date()` still exists for views that legitimately want the
+    date whoever-it-is promised.
+    """
+    return None if is_waiting(task) else task_due_date(task)
+
+
 def task_deadline(task: dict) -> str | None:
     """Extract a YYYY-MM-DD *deadline* from any of the shapes the API returns.
 

@@ -37,11 +37,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared" / "scripts"))
 from vaultlib import (  # noqa: E402
+    actionable_due_date,
     derive_status,
     domain_parent_ids,
     find_vault_root,
     flatten_overview,
     holding_pen_ids,
+    is_waiting,
     load_config,
     load_remote,
     one_off_ids,
@@ -147,10 +149,26 @@ def build(args) -> tuple[str, dict]:
             continue
         tracked.append(node)
 
-    upcoming, overdue = [], []
+    upcoming, overdue, waiting = [], [], []
     for pid, tasks in tasks_by_project.items():
         node = td_projects.get(pid, {"name": "(unknown project)", "domain": None})
         for task in tasks:
+            # A delegated task is not yours to do, so it stays out of the daily
+            # views entirely and gets its own lane below - the same split the
+            # three Today filters make with `& !@waiting`.
+            if is_waiting(task):
+                added = parse_date(task.get("addedAt") or task.get("added_at"))
+                chased = parse_date(task_due_date(task))
+                waiting.append({
+                    "content": task.get("content"),
+                    "project": node.get("name"),
+                    "domain": node.get("domain"),
+                    "due": chased.isoformat() if chased else None,
+                    "added": added.isoformat() if added else None,
+                    "days_waiting": (today - added).days if added else None,
+                    "task_id": task.get("id"),
+                })
+                continue
             due = parse_date(task_due_date(task))
             if not due:
                 continue
@@ -172,6 +190,8 @@ def build(args) -> tuple[str, dict]:
 
     overdue.sort(key=lambda r: (r["due"], r["project"] or "", r["content"] or ""))
     upcoming.sort(key=lambda r: (r["due"], r["domain"] or "zz", r["project"] or ""))
+    # Longest-waiting first: age is the whole point of the list.
+    waiting.sort(key=lambda r: (-(r["days_waiting"] or 0), r["project"] or ""))
 
     # -- Deadlines --------------------------------------------------------
     # A separate lane on purpose. `task_due_date()` ignores `deadlineDate`, so a
@@ -206,7 +226,7 @@ def build(args) -> tuple[str, dict]:
     no_next_action = []
     for node in tracked:
         tasks = tasks_by_project.get(node["id"], [])
-        if any(task_due_date(t) for t in tasks):
+        if any(actionable_due_date(t) for t in tasks):
             continue
         notes = notes_by_todoist.get(node["id"], [])
         no_next_action.append({
@@ -246,7 +266,7 @@ def build(args) -> tuple[str, dict]:
             # under "no next action" with the same remedy; saying it twice just
             # makes the report longer.
             continue
-        dues = sorted(d for d in (parse_date(task_due_date(t)) for t in tasks) if d)
+        dues = sorted(d for d in (parse_date(actionable_due_date(t)) for t in tasks) if d)
         if dues and dues[-1] >= today:
             continue  # something is still scheduled ahead; not stalled
         notes = notes_by_todoist.get(node["id"], [])
@@ -295,7 +315,7 @@ def build(args) -> tuple[str, dict]:
         # due-dated" is a contradiction the note can be checked against, not
         # just an unverifiable mirror.
         node_tasks = tasks_by_project.get(note["todoist_id"], [])
-        derived = derive_status(any(task_due_date(t) for t in node_tasks))
+        derived = derive_status(any(actionable_due_date(t) for t in node_tasks))
         conflict = status_conflict(note["status"], derived)
         if conflict:
             drift.append({
@@ -327,6 +347,7 @@ def build(args) -> tuple[str, dict]:
             "overdue": len(overdue),
             "deadlines": len(deadlines),
             "deadlines_unplanned": sum(1 for d in deadlines if d["unplanned"]),
+            "waiting": len(waiting),
             "no_next_action": len(no_next_action),
             "stalled": len(stalled),
             "drift": len(drift),
@@ -335,6 +356,7 @@ def build(args) -> tuple[str, dict]:
         "overdue": overdue,
         "deadlines": deadlines,
         "deadlines_beyond_horizon": deadlines_beyond,
+        "waiting": waiting,
         "no_next_action": no_next_action,
         "stalled": stalled,
         "drift": drift,
@@ -453,6 +475,24 @@ def render(a: dict, config: dict) -> str:
         if a["deadlines_beyond_horizon"]:
             add("")
             add(f"{a['deadlines_beyond_horizon']} more beyond {a['deadline_days']} days.")
+    add("")
+
+    # -- Waiting For ------------------------------------------------------
+    add("## Waiting For")
+    add("")
+    if not a["waiting"]:
+        add("Nothing delegated or blocked on someone else.")
+    else:
+        add(f"{len(a['waiting'])} tracked, not doing — the next move is someone else's. "
+            "None of these counts as a next action, so a project can appear below with "
+            "nothing to do while still having a `waiting` task open.")
+        add("")
+        add("| Waiting | Task | Project | Chase on |")
+        add("|---|---|---|---|")
+        for row in a["waiting"]:
+            age = f"{row['days_waiting']}d" if row["days_waiting"] is not None else "—"
+            add(f"| {age} | {esc(row['content'])} | {esc(row['project'])} | "
+                f"{row['due'] or '—'} |")
     add("")
 
     # -- No next action ---------------------------------------------------

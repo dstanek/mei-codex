@@ -36,11 +36,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared" / "scripts"))
 from vaultlib import (  # noqa: E402
+    actionable_due_date,
     derive_status,
     domain_parent_ids,
     find_vault_root,
     flatten_overview,
     holding_pen_ids,
+    is_waiting,
     load_config,
     load_remote,
     one_off_ids,
@@ -48,7 +50,6 @@ from vaultlib import (  # noqa: E402
     resolve_domain,
     scan_projects,
     status_conflict,
-    task_due_date,
     today_utc,
 )
 
@@ -213,7 +214,7 @@ def build(args):
         # doesn't exist. So it can genuinely be checked: a note claiming
         # `active` while Todoist has nothing due-dated is the GTD rule restated.
         note_tasks = tasks_by_project.get(note["todoist_id"], [])
-        derived = derive_status(any(task_due_date(t) for t in note_tasks))
+        derived = derive_status(any(actionable_due_date(t) for t in note_tasks))
         conflict = status_conflict(note["status"], derived)
         if conflict:
             if derived == "archived" or (note["status"] or "").lower() == "archived":
@@ -324,7 +325,10 @@ def build(args):
         if pid in skip_checks:
             continue
         tasks = tasks_by_project.get(pid, [])
-        dues = sorted(d for d in (parse_date(task_due_date(t)) for t in tasks) if d)
+        # actionable_due_date, not task_due_date: a `waiting` task is not a next
+        # action however it is dated, so it must not make this project pass.
+        dues = sorted(d for d in (parse_date(actionable_due_date(t)) for t in tasks) if d)
+        waiting_here = sum(1 for t in tasks if is_waiting(t))
         note = (notes_by_todoist.get(pid) or [None])[0]
         where = f" — note `{note['index_path']}`" if note else ""
 
@@ -334,11 +338,22 @@ def build(args):
                 else (f"{len(tasks)} due-dated task(s) came back; undated tasks were not collected"
                       if tasks else "no due-dated tasks; undated tasks were not collected")
             )
+            # Without this the row reads "none due-dated" on a project that
+            # visibly has a dated task, which looks like the report is wrong.
+            why = (
+                f", {waiting_here} of them `waiting` and so not a next action"
+                if waiting_here else ""
+            )
             F["no_next_action"].append({
                 "finding": "No next action",
                 "subject": f"`{node['name']}` ({pid})",
-                "detail": f"{count}, none due-dated{where}",
-                "action": "Add a due-dated next action, or drop to `backlog` / `on-hold`",
+                "detail": f"{count}, none due-dated{why}{where}",
+                "action": (
+                    "Add a next action you can act on yourself, or drop to `on-hold` "
+                    "while the `waiting` item is outstanding"
+                    if waiting_here else
+                    "Add a due-dated next action, or drop to `backlog` / `on-hold`"
+                ),
             })
 
         # "Stalled" per Project Reconciliation.md means tasks that are all *long*

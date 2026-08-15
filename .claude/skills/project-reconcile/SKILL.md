@@ -124,6 +124,19 @@ If the user says go, `mcp__todoist__update-tasks` with a `projectId` moves a
 task. Don't use it to touch dates — `reschedule-tasks` exists because
 `update-tasks` destroys recurrence.
 
+## Waiting is not a next action
+
+A task labelled `waiting` is discounted by the GTD and stalled checks and by the
+derived status — `actionable_due_date()` returns None for it. So a project whose
+only dated task is delegated is reported as having **no next action**, and §3
+names the reason rather than claiming "none due-dated" about a project that
+plainly has a dated task.
+
+The remedy differs from the ordinary case: propose an action the human can take
+*themselves*, or `on-hold` for as long as the other party owes them. Don't
+propose a date for the delegated task — rescheduling someone else's work is
+fiction.
+
 ## Interpretation notes
 
 All are in the report's footnotes; repeat them if a finding surprises the user.
