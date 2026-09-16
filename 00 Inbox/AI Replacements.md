@@ -1,0 +1,7 @@
+- Docusign -> Documenso
+- Miro -> Excalidraw
+- Figma -> Penpot
+- Calendly -> cal.diy
+- Mailchimp -> Listmonk
+- Bitly -> Dub
+- TeamViewer -> rustdesk

@@ -30,7 +30,7 @@ tags: []
 
 > **GTD Reminder:** When changing status to `active`, this project needs all three:
 > 1. A Todoist project under the domain parent, with a due-dated next action — `{Project Name}: {Task}`
-> 2. A Drive folder at `1. Projects/{Domain}/{Project Name}/`
+> 2. A Drive folder at `01 Projects/{Domain}/{Project Name}/`
 > 3. Both URLs pasted into `todoist:` and `drive:` above
 >
 > See [[Project Reconciliation]].

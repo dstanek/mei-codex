@@ -77,7 +77,7 @@ Every project has one **canonical short name**, set in Todoist and reused everyw
 | Todoist task         | `{short name}: {task}` *(optional prefix)*  | `Homelab: Setup shelf`             | —         |
 | Obsidian             | `01 Projects/{short name}/{short name}.md`  | `01 Projects/Homelab/Homelab.md`   | Optional  |
 | Obsidian frontmatter | `domain: {domain}`                          | `domain: personal`                 | —         |
-| Google Drive         | `1. Projects/{Domain}/{short name}/`        | `1. Projects/Personal/Homelab/`    | Optional  |
+| Google Drive         | `01 Projects/{Domain}/{short name}/`        | `01 Projects/Personal/Homelab/`    | Optional  |
 
 A project exists because it's in Todoist. Create an Obsidian note when you have thinking to capture, and a Drive folder when you have downloads to keep — not by default.
 
@@ -99,6 +99,22 @@ Support notes inside a project folder need no `type: project` frontmatter — th
 
 > Do **not** create domain folders under `01 Projects/`. Domain lives in frontmatter, and Dataview handles the grouping. See [[Project Reconciliation]] for why the three systems are organized differently.
 
+### Folder-name index vs. `index.md`
+
+The vault uses both, deliberately. The rule is whether you ever **link to the folder itself**:
+
+| The folder is | Index file | Because |
+|---|---|---|
+| **A thing** — a project, an area | `{Folder}/{Folder}.md` | You write `[[Homelab]]`, `[[Career]]` |
+| **A container** — a YT series, a vault section | `index.md` or `README.md` | You never link to the container by name |
+
+So `01 Projects/Homelab/Homelab.md` and `02 Areas/Career/Career.md`, but
+`09 YT/Pre-Commit/index.md` and `05 Foundary/README.md`.
+
+**Why not `index.md` everywhere?** Obsidian resolves wikilinks by filename across the whole vault. Thirty notes named `index` makes `[[index]]` ambiguous, forces `[[Homelab/index]]` everywhere, and fills the quick switcher and graph with identical nodes. It would also break existing queries silently — [[Topic]] runs `contains(file.tags, this.file.name)`, and under `index.md` that resolves to the literal string `index`, so the query returns nothing rather than erroring.
+
+**The cost of this choice**, worth naming: renaming a project means renaming the **folder and the note together**. Doing one and not the other is the single most common structural break, which is why [[Project Reconciliation]] checks for a directory with no matching index note.
+
 ### When to use task prefixes
 
 **Use prefix when:**
@@ -110,21 +126,59 @@ Support notes inside a project folder need no `type: project` frontmatter — th
 - Creating tasks directly inside the project
 - Context is already clear
 
+## Drive File Naming
+
+> **The folder supplies the context; the filename supplies what makes this file different from its siblings.**
+
+`Soccer/2025 Season/Roster` beats `Soccer/2025-soccer-season-roster-final-v2`. If the folder already says it, the filename shouldn't repeat it.
+
+| Kind of file | Pattern | Example |
+|---|---|---|
+| Google-native doc | `Title Case`, **no extension** | `Materials` — not `Materials.xlsx` |
+| Point-in-time document | `YYYY-MM-DD Subject` | `2026-04-06 Roof Detail.png` |
+| Annual or periodic series | `Subject YYYY` | `Letter From Santa 2018`, `Taxes 2025` |
+| Build or versioned artifact | `{project}-{stage}{n}.{ext}` | `wms-alpha4.apk` |
+| Brand or design asset | `{brand}-{asset}.{ext}` | `learn-fast-youtube-banner.afdesign` |
+| Manual | `{Brand} {Model} Manual.pdf` | `Hayward DV1000 Manual.pdf` |
+| 3D model | `{Object} v{n}.{ext}` | `Fridge Handle Cover v2.stl` |
+| Photo set | folder carries context; keep camera names | `2025-11 Fall Session/IMG_6440.CR2` |
+
+**Never:**
+
+- `Untitled*`, `Copy of *`, a trailing ` (1)`
+- OS and scanner defaults — `Screenshot 2026-08-13 at 12.19.48 AM.png`, `SKM_C3320i23051903560.pdf`
+- Vendor hash suffixes — `Upper-Lower-4x-udpkvj.pdf`, `gridplates-400x322-Standard-4ba4d.stl`
+- Doubled extensions — `Xander.jpg.jpg`
+- An extension on a Google-native file. There is no file to have one
+- Leading, trailing, or doubled spaces — these are invisible and they break sorting
+
+### Renaming existing files
+
+Rename when a name carries **no information**, or when you're moving the file anyway. Don't rename for tidiness alone — a name that is merely inconsistent is not worth the risk of breaking a link or a bookmark.
+
+Three habits, learned the hard way:
+
+**A filename is not evidence of what a file is.** `strategy.rst` was a ten-page Keystone federation design document. `Introduction to Programming` was the DESN 210 syllabus. `Untitled presentation` was a lecture deck. Open it before you judge it, and certainly before you delete it.
+
+**Verify duplicates by content, never by size.** Two files of identical size can be unrelated; two copies of one document in different formats will always differ. Read both.
+
+**A convention that looks inconsistent may be encoding something.** `04 Archive/Taxes/` mixes `2019 Expenses for Taxes` with `Taxes 2025` — not carelessness, but two document types: worksheets and filings. Understand a pattern before normalising it away.
+
 ## Domains
 
 Domains connect Obsidian projects to Todoist parents and Drive folders. This list is closed — a project's `domain` must be one of these seven:
 
 | Domain | Obsidian `domain:` | Todoist Parent | Drive Folder |
 |--------|-------------------|----------------|--------------|
-| Personal | `personal` | Personal | `1. Projects/Personal/` |
-| HPE (work) | `hpe` | HPE | `1. Projects/HPE/` |
-| CWRU (teaching) | `cwru` | CWRU | `1. Projects/CWRU/` |
-| Learn Fast (business) | `learn-fast` | Learn Fast | `1. Projects/Learn Fast/` |
-| Preheat to 350 (business) | `preheat-350` | Preheat to 350 | `1. Projects/Preheat to 350/` |
-| Paige Creations (business) | `paige-creations` | Paige Creations | `1. Projects/Paige Creations/` |
-| Freelancing | `freelancing` | Freelancing | `1. Projects/Freelancing/` |
+| Personal | `personal` | Personal | `01 Projects/Personal/` |
+| HPE (work) | `hpe` | HPE | `01 Projects/HPE/` |
+| CWRU (teaching) | `cwru` | CWRU | `01 Projects/CWRU/` |
+| Learn Fast (business) | `learn-fast` | Learn Fast | `01 Projects/Learn Fast/` |
+| Preheat to 350 (business) | `preheat-350` | Preheat to 350 | `01 Projects/Preheat to 350/` |
+| Paige Creations (business) | `paige-creations` | Paige Creations | `01 Projects/Paige Creations/` |
+| Freelancing | `freelancing` | Freelancing | `01 Projects/Freelancing/` |
 
-Adding a domain means adding all five: the `domain:` value, a Todoist parent project, a `One-Off` child under it, a `Someday / Maybe` child under it, and a `1. Projects/` subfolder.
+Adding a domain means adding all five: the `domain:` value, a Todoist parent project, a `One-Off` child under it, a `Someday / Maybe` child under it, and a `01 Projects/` subfolder.
 
 ## One-Off Tasks
 
@@ -153,9 +207,22 @@ This keeps the domain parent a pure container, so "projects under this domain" i
 
 `One-Off` projects are permanent buckets. They never complete, so the GTD rule doesn't apply to them, they're never "stalled", and they get no Obsidian note and no Drive folder. Reconciliation skips them — same treatment as `Someday / Maybe`.
 
-### Areas vs. Projects in Drive
+### Drive structure
 
-Drive's numbered roots `5. Preheat to 350`, `6. Paige Stanek`, `7. Learn Fast`, and `8. Cabinet` are **Areas** — evergreen per-focus material (`Graphics`, `Videos`, `logos`, `shopify`). Project-scoped downloads go under `1. Projects/{Domain}/`, not into these.
+`01 Projects/{Domain}/{Project}/` holds project-scoped downloads. `02 Areas/{Subject}/` holds evergreen per-focus material. Same split as the vault, one tier shallower.
+
+> **One home per subject.** A subject has exactly one folder. Lifecycle is expressed by a **subfolder inside it**, never by a copy in another tier.
+
+```
+02. Areas/Soccer/
+  CFSC HSB Spring 26/
+  11B ECNL-RL Yellow/
+  Archive/            <- closed seasons live here, not in 04. Archive/Soccer/
+```
+
+`04 Archive/` is reserved for subjects that are **entirely** done, with no live component at all — `Shoreline`, `DjangoBookReview`, `Consulting`.
+
+The legacy roots `5. Preheat to 350`, `6. Paige Stanek` and `7. Learn Fast` predate this scheme and still hold per-focus material. Nothing new goes into them.
 
 ## Someday / Maybe
 
@@ -190,7 +257,7 @@ domain: personal   # see Domains table
 priority: 2
 created: 2025-11-03 09:12
 todoist: https://app.todoist.com/app/project/6fwMM9662W23qXCH
-drive: https://drive.google.com/drive/folders/1PrTZmsM453LSEKwjDebWdhPU9WdRXbcA
+drive: https://drive.google.com/drive/folders/{drive-folder-id}
 tags: []
 ---
 ```
@@ -230,6 +297,10 @@ Ongoing pursuits — learning a subject, staying fit, managing a career — neve
 > **An Area has no Todoist project.** Its `todoist:` field stays empty — that's what distinguishes it from a project note, where the URL is required.
 
 Todoist is the canonical list of *projects*, and an Area isn't one. Giving an Area a Todoist project creates something that can never satisfy the GTD rule, so it either shows up as permanently stalled or has to be special-cased forever.
+
+> **An Area may be empty, and that is fine.** `Career` sat with no material for months and was still a real area of responsibility. An empty Area is not dead scaffolding, and reconciliation must never report it as such.
+
+The failure that *does* matter looks similar and isn't: a subject whose folder is empty **while its material lives somewhere else**. Drive's `02 Areas/Soccer/` was empty while soccer files sat in four other folders across three tiers. Empty-and-waiting is healthy; empty-and-scattered is the defect.
 
 An Area is a **directory with an index note of the same name**, the same layout as a project:
 
@@ -380,7 +451,7 @@ Todoist first, because Todoist decides what exists.
 1. **Todoist** — create project `Kitchen Remodel` under the `Personal` parent.
 2. **Todoist** — add a next action with a due date: `Kitchen Remodel: Get contractor quotes`.
 3. **Obsidian** *(only if you have thinking to capture)* — create `01 Projects/Kitchen Remodel/Kitchen Remodel.md` from the `Project.md` template, mirror `status`/`domain`/`priority`, and paste the Todoist URL into `todoist:`.
-4. **Drive** *(only if you'll download material)* — create `1. Projects/Personal/Kitchen Remodel/` and paste its URL into `drive:`.
+4. **Drive** *(only if you'll download material)* — create `01 Projects/Personal/Kitchen Remodel/` and paste its URL into `drive:`.
 
 Steps 3 and 4 are optional. Step 1 is not — a project that isn't in Todoist doesn't exist. If you do create the note, pasting the `todoist:` URL is the step that gets skipped; without it the note shows in the Dashboard's *Notes Needing a Todoist Link* pane.
 
@@ -395,4 +466,4 @@ The `todoist` and `drive` URLs stay — they're still correct, just no longer re
 
 1. **Obsidian** — set `status: archived`, move the project directory to `04 Archive/Projects/`
 2. **Todoist** — archive the project
-3. **Drive** — move the folder to `4. Archive/`
+3. **Drive** — move the folder to `04 Archive/Projects/{Domain}/` — the same path as `01 Projects/{Domain}/`, one prefix changed

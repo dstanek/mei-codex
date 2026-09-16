@@ -29,11 +29,11 @@ Because an Obsidian project note carries an explicit `todoist:` URL, **binding i
 |--------|-----------------|-----------|
 | Todoist | Parent-project nesting; no project-level metadata | **Domain.** One parent project per domain |
 | Obsidian | Frontmatter + Dataview — real facets | **Lifecycle.** Flat `01 Projects/`; domain lives in `domain:` |
-| Drive | Folders only — no query, no metadata | **Domain.** `1. Projects/{Domain}/` |
+| Drive | Folders only — no query, no metadata | **Domain.** `01 Projects/{Domain}/` |
 
 Do not add domain folders to `01 Projects/`. Dataview already gives you per-domain views, and the Dashboard uses them.
 
-Drive's numbered roots `5. Preheat to 350`, `6. Paige Stanek`, `7. Learn Fast`, and `8. Cabinet` are **Areas**, not Projects — they hold evergreen per-focus material. Project-scoped downloads belong under `1. Projects/{Domain}/`.
+Drive's legacy roots `5. Preheat to 350`, `6. Paige Stanek` and `7. Learn Fast` predate the current scheme and hold evergreen per-focus material. Nothing new goes into them: project-scoped downloads belong under `01 Projects/{Domain}/`, evergreen material under `02 Areas/{Subject}/`. See *Drive structure* in [[Conventions]] for the one-home-per-subject rule.
 
 > **Drive folders need no index file.** A Drive folder is a bucket for downloads. Nothing is required to be in it, and it needs no note, README, or manifest.
 
@@ -85,7 +85,7 @@ Flag any directory with no index note, and any loose `.md` file sitting directly
 
 ### 3. Collect the Drive side
 
-`1. Projects/` is folder ID `14Kt3GswyG0moflC5iLEG769Rov879PiA`.
+`01 Projects/` is folder ID `14Kt3GswyG0moflC5iLEG769Rov879PiA`.
 
 ```
 search_files: parentId = '14Kt3GswyG0moflC5iLEG769Rov879PiA'
@@ -93,7 +93,9 @@ search_files: parentId = '14Kt3GswyG0moflC5iLEG769Rov879PiA'
 
 That returns the per-domain subfolders. Then one query per domain subfolder.
 
-> The Drive connector can **create** folders but cannot move, rename, or delete them. Relocations have to be done by hand in the Drive UI — report them, don't attempt them.
+> The Drive connector can create, move, rename, and trash. `create_file` makes folders, `update_file` takes a `title` (rename) and a `parentId` (move — the existing parent is *replaced*), and `trash_file` sends to trash, recoverable for 30 days.
+>
+> **This pass still doesn't do any of it.** Reconciliation reports and stops — that rule is about the pass being read-only, not about a tool limitation. A folder move leaves no visible trace once it's done, so relocations get proposed here and executed only after review, with each one logged old-path → new-path against the file ID.
 
 ### 4. Join
 
@@ -137,6 +139,6 @@ Todoist first, because Todoist decides what exists.
 
 1. **Todoist** — create the project under its domain parent. Add a next action with a due date: `Kitchen Remodel: Get contractor quotes`.
 2. **Obsidian** *(optional)* — if you have thinking to capture, create `01 Projects/Kitchen Remodel/Kitchen Remodel.md` from the `Project.md` template and paste the Todoist URL into `todoist:`.
-3. **Drive** *(optional)* — if you'll be downloading material, create `1. Projects/{Domain}/Kitchen Remodel/` and paste its URL into `drive:`.
+3. **Drive** *(optional)* — if you'll be downloading material, create `01 Projects/{Domain}/Kitchen Remodel/` and paste its URL into `drive:`.
 
 Steps 2 and 3 are genuinely optional. Step 1 is not — a project that isn't in Todoist doesn't exist.

@@ -6,7 +6,7 @@ domain: personal
 priority:
 created: 2026-08-06 00:00
 todoist:
-drive:
+drive: https://drive.google.com/drive/folders/1dmJyPMBHof98GYZPglhp79qmwnSoPvs2
 tags: []
 ---
 

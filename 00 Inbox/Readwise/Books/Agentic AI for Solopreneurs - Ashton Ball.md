@@ -150,3 +150,19 @@ last_highlight: 2026-07-26 04:56:00+00:00
 > You risk dropping the ball if you try to automate the outreach first, without having a reliable system for collecting and storing info.
 
  * [Location 737](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=737)
+## New highlights added August 25, 2026 at 5:14 PM
+### Location 744
+
+> only automate what’s already working reliably.
+
+ * [Location 744](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=744)
+### Location 744
+
+> Use a tracking tool (even as simple as a shared document) that lists what’s automated, how it connects, and what to do if it breaks.
+
+ * [Location 744](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=744)
+### Location 995
+
+> grounding app selection and adoption in criteria, real-user insight, agile testing, and adaptive habits,
+
+ * [Location 995](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=995)

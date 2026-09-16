@@ -6,7 +6,7 @@ domain: hpe
 priority:
 created: 2026-08-06 00:00
 todoist:
-drive:
+drive: https://drive.google.com/drive/folders/1dOcgQ_n_um4cI3T_Jm2RBjSQSqY_cpnm
 tags: []
 ---
 

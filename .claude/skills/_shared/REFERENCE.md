@@ -61,7 +61,7 @@ The seven-domain enum is closed. IDs live in machine-readable form in
 `domains.json`, which is the only place they are written down — scripts read it,
 and this table is generated from the same values.
 
-| `domain:` | Todoist parent | `One-Off` child | `Someday / Maybe` child | Drive folder under `1. Projects/` |
+| `domain:` | Todoist parent | `One-Off` child | `Someday / Maybe` child | Drive folder under `01 Projects/` |
 |---|---|---|---|---|
 | `personal` | `6CrgJQx8x2Pj59Mq` | `6hCvCx7PMCr5jCvX` | `6fRrh8F4mjQ5987P` | `1nXCFdV5odms0IZNcI-W65PlYASwa3iXR` |
 | `hpe` | `6VJV6WFQ8837mrgM` | `6hCvGfxQmqXjg29v` | `6VJRvvFRxRxpMgj2` | `1iINWT9BIPwKq_6MF7NbwF-bHdKVPHHav` |
@@ -71,8 +71,8 @@ and this table is generated from the same values.
 | `paige-creations` | `6hCqPPfMC67j8cpJ` | `6hCvGw6r958JC9Wq` | `6hF3VX9h3gFjJ3WH` | `18Omxpp8bK5qp6U1BTGekySrk8nnL1maS` |
 | `freelancing` | `6fwPWr428M6qVxrV` | `6hCvGrP8JR9jjCPj` | `6hF3VX938w7wvjrX` | `19382M9SJrkcPflQxzSQqky8nHYTi5yhs` |
 
-`1. Projects/` root is `14Kt3GswyG0moflC5iLEG769Rov879PiA`.
-`4. Archive/Projects/` is `1PNRF-4Fk8jPOjcgxt6NPQktD7KSMS9NX`.
+`01 Projects/` root is `14Kt3GswyG0moflC5iLEG769Rov879PiA`.
+`04 Archive/Projects/` is `1PNRF-4Fk8jPOjcgxt6NPQktD7KSMS9NX`.
 
 ### One-Off
 
