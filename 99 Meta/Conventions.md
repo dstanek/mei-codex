@@ -9,6 +9,8 @@ Standards for organizing notes, projects, and tasks across Todoist, Obsidian, an
 
 For checking that the three stay in sync, see [[Project Reconciliation]].
 
+For how an external source becomes a note in `05 Foundary/`, see [[Note Intake Process]].
+
 ## Note Types
 
 Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.

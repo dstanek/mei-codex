@@ -13,9 +13,10 @@ This is an Obsidian personal knowledge management (PKM) vault called "Mei Codex"
 | `00 Inbox/` | Unprocessed capture bucket — notes land here before being filed |
 | `01 Projects/` | Active project notes — one directory per project, with an index note named after the folder |
 | `02 Areas/` | Ongoing areas of responsibility (Career, Learning, Financial, etc.) |
-| `03 Resources/` | Reference material and Readwise imports |
+| `03 Resources/` | Reference material |
 | `04 Archive/` | Completed or abandoned projects |
 | `05 Foundary/` | Zettelkasten — permanent atomic notes forged from ideas |
+| `12 Readwise/` | Readwise sync — machine-managed source notes; never edit, move or rename |
 | `07 Daily/` | Daily notes (auto-created from template) |
 | `08 Topics/` | Topic reference notes (auto-filed when tagged `#topic`) |
 | `09 YT/` | YouTube content creation notes and research |
@@ -24,6 +25,8 @@ This is an Obsidian personal knowledge management (PKM) vault called "Mei Codex"
 | `99 Meta/Reports/` | Generated reconciliation reports |
 
 > For note types, project conventions, domains, and GTD rules, see [[99 Meta/Conventions]].
+
+> Sources become notes through a defined path — Reader, the Readwise sync, then the Foundary. See [[99 Meta/Note Intake Process]].
 
 > Projects span three systems — Obsidian, Todoist, and Google Drive. For how they bind and how to check they're in sync, see [[99 Meta/Project Reconciliation]].
 
