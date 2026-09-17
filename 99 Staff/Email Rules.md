@@ -11,8 +11,11 @@ Rules the **communications** assistant follows when it classifies new inbox thre
 | `Staff/Reply` | Someone asked me something or needs my answer |
 | `Staff/Action` | Something to do that isn't a reply: pay, sign, schedule, review |
 | `Staff/Waiting` | I sent the last real message; someone else owes the next move |
+| `Staff/Research` | An article, paper, talk or release worth my time, judged against [[Interests]]. Nothing asked of me |
 | `Staff/Reference` | Worth keeping, nothing to do: receipts, confirmations, shipping |
 | `Staff/Noise` | Automated or promotional, nothing lost if never read |
+
+A thread gets exactly one label. Research only applies when nothing is asked of me; if a message both links an article and needs an answer, it is Reply.
 
 Urgent and Reply threads are posted to the staff room; the rest only show up in Gmail. Relabel a thread in Gmail to correct it, and add a rule here when the same mistake repeats.
 
@@ -27,4 +30,4 @@ How the assistant uses this note:
 
 Write one rule per line, in plain language: who or what it matches, and the label. For example: "Anything from @school.org is Urgent", or "GitHub notifications for repos I don't own are Noise".
 
-1. _No rules yet._
+1. Mail carrying an article, paper, talk or release that matches [[Interests]] is Research. A newsletter counts when at least one piece genuinely matches; otherwise it is Noise.
