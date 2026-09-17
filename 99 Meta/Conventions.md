@@ -25,6 +25,37 @@ Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.
 | `content-idea` | `Content Idea.md`  | Video/article/course ideas; lives in `09 YT/Ideas/`      |
 | `meta`       | —                    | Vault config and conventions                            |
 
+## Frontmatter
+
+**This table is the definition.** Templates render it, and anything else that describes frontmatter — a template, a process note, an agent — follows it. Where they disagree, this wins.
+
+Every note carries a small base; each type adds what it needs. A field that cannot be answered for a note does not belong on it.
+
+| Field | Where | Meaning |
+| --- | --- | --- |
+| `type` | every note | Which kind of note this is; see [[#Note Types]] |
+| `created` | every note | When the note was made, `YYYY-MM-DD HH:MM` |
+| `tags` | every note, may be empty | Existing vault tags, not new ones |
+| `source` | `zettel`, `literature`, `content-idea` | Where the material came from: URL, or a `[[link]]` to a note in `12 Readwise/` |
+| `author` | `literature` | Who wrote the source |
+| `status` | `project`, `content-idea`, `literature` | Lifecycle; the values differ per type and are defined in that type's section |
+| `domain` | `project`, `area`, `content-idea` | Which sphere of work; see [[#Domains]] |
+| `todoist` | `project` (URL), `area` (empty) | Binds the note to Todoist; an empty value is what marks an Area |
+| `drive` | `project`, optional | Folder of downloaded material |
+| `priority` | `project` | Mirrors the Todoist priority |
+| `title` | `project`, `content-idea` | Human-readable name when it differs from the filename |
+| `aliases` | `topic` | Other names this hub answers to |
+
+Deliberate omissions:
+
+- **No `domain` on `zettel`.** A concept is not owned by a sphere of work: the same idea can serve the job, the teaching and the homelab. Use a hub in `08 Topics/` to gather ideas instead, which allows the same note to hang off several.
+- **No ownership or relationship fields** (`belongs_to`, `related_to`). For projects and areas the folder already says what a note is part of; for ideas, links in the body and topic hubs carry the relationships, and Dataview can read them.
+
+Two exceptions to the base:
+
+- **Daily notes** are generated and carry `created` only.
+- **`12 Readwise/` is machine-managed.** The Readwise sync owns that frontmatter; never add vault fields to it. Relationships to sources live on the Foundary note, as [[Note Intake Process]] describes.
+
 ## Content Ideas
 
 Every content idea is one note in `09 YT/Ideas/`, flat — no subfolders. `content-type` and `status` do the grouping, and Dataview assembles the views in [[Content Ideas]]. Same principle as projects: the folder is dumb, the frontmatter is smart.
