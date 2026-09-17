@@ -1,3 +1,9 @@
+---
+type: zettel
+created: 2026-07-19 09:14
+tags: []
+---
+
 # A Guide to Observability
 
 The image explains six foundational observability concepts using a failed checkout request as the running example.

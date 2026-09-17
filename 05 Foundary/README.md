@@ -1,3 +1,9 @@
+---
+type: meta
+created: 2026-02-11 13:12
+tags: []
+---
+
 # 05 Foundary
 
 The Foundary is where ideas are forged into permanent notes — your Zettelkasten.

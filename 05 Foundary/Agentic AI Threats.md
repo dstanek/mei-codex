@@ -1,4 +1,6 @@
 ---
+type: zettel
+created: 2026-07-17 21:42
 tags:
   - ai
   - security

@@ -23,6 +23,7 @@ Notes use a `type` frontmatter field. Templates live in `99 Meta/Templates/`.
 | `area`       | —                    | Ongoing responsibility with no completion condition; lives in `02 Areas/`, and has **no** Todoist project *(see [[#Areas]])* |
 | `topic`      | `Topic.md`           | Reference hub; Dataview shows backlinks                 |
 | `content-idea` | `Content Idea.md`  | Video/article/course ideas; lives in `09 YT/Ideas/`      |
+| `resource`   | —                    | Reference material kept for lookup rather than thinking: lists, inventories, queues; lives in `03 Resources/` |
 | `meta`       | —                    | Vault config and conventions                            |
 
 ## Frontmatter
@@ -38,8 +39,8 @@ Every note carries a small base; each type adds what it needs. A field that cann
 | `tags` | every note, may be empty | Existing vault tags, not new ones |
 | `source` | `zettel`, `literature`, `content-idea` | Where the material came from: URL, or a `[[link]]` to a note in `12 Readwise/` |
 | `author` | `literature` | Who wrote the source |
-| `status` | `project`, `content-idea`, `literature` | Lifecycle; the values differ per type and are defined in that type's section |
-| `domain` | `project`, `area`, `content-idea` | Which sphere of work; see [[#Domains]] |
+| `status` | `project`, `content-idea`, `literature`, `resource` | Lifecycle; the values differ per type and are defined in that type's section. A `resource` is `reference` |
+| `domain` | `project`, `area`, `content-idea`, `resource` | Which sphere of work; see [[#Domains]] |
 | `todoist` | `project` (URL), `area` (empty) | Binds the note to Todoist; an empty value is what marks an Area |
 | `drive` | `project`, optional | Folder of downloaded material |
 | `priority` | `project` | Mirrors the Todoist priority |
