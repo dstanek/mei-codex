@@ -1,14 +1,13 @@
 ---
 author: 2 Minute Insight
 tags: readwise_inbox, readwise
-created: Saturday 28th February 2026 09:37
-modified: Saturday 28th February 2026 09:37
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2026-02-28 04:56:00+00:00
-type:
 ---
 # Cheat Sheet
 
-![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51TxwcxTTUL._SL200_.jpg)
+![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51TxwcxTTUL._SL500_.jpg)
 
 ## Metadata
 - Author: [[2 Minute Insight]]

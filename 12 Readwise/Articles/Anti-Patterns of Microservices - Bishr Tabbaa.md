@@ -1,13 +1,13 @@
 ---
 author: Bishr Tabbaa
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2025-01-23 20:25:34.032928+00:00
 ---
 # Anti-Patterns of Microservices
 
-![rw-book-cover](https://readwise-assets.s3.amazonaws.com/static/images/article1.be68295a7e40.png)
+![rw-book-cover](https://d34adp677peecb.cloudfront.net/static/images/article1.be68295a7e40.png)
 
 ## Metadata
 - Author: [[Bishr Tabbaa]]

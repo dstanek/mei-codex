@@ -1,13 +1,13 @@
 ---
 author: Peter Hollins
 tags: readwise_inbox, readwise
-created: Monday 2nd February 2026 11:43
-modified: Monday 2nd February 2026 11:43
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2019-04-23 04:56:00+00:00
 ---
 # Learn Like Einstein
 
-![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51pBgvTBqCL._SL200_.jpg)
+![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51pBgvTBqCL._SL500_.jpg)
 
 ## Metadata
 - Author: [[Peter Hollins]]

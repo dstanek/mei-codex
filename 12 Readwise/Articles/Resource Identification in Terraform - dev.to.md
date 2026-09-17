@@ -1,8 +1,8 @@
 ---
 author: dev.to
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2025-03-20 16:36:42.331458+00:00
 ---
 # Resource Identification in Terraform

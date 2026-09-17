@@ -1,13 +1,13 @@
 ---
 author: Steve Freeman and Nat Pryce
 tags: readwise_inbox, readwise
-created: Monday 2nd February 2026 11:43
-modified: Monday 2nd February 2026 11:43
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2015-05-28 04:56:00+00:00
 ---
 # Growing Object-Oriented Software, Guided by Tests (Addison-Wesley Signature Series (Beck))
 
-![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51igfjeYA8L._SL200_.jpg)
+![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/51igfjeYA8L._SL500_.jpg)
 
 ## Metadata
 - Author: [[Steve Freeman and Nat Pryce]]
@@ -60,11 +60,6 @@ last_highlight: 2015-05-28 04:56:00+00:00
 > we apply feedback cycles at every level of development, organizing projects as a system of nested loops ranging from seconds to months, such as: pair programming, unit tests, acceptance tests, daily meetings, iterations, releases, and so on.
 
  * [Location 420](https://readwise.io/to_kindle?action=open&asin=B002TIOYVW&location=420)
-### Location 452
-
-> “I was finally able to separate logical from physical design. I’d always been told to do that but no one ever explained how.”
-
- * [Location 452](https://readwise.io/to_kindle?action=open&asin=B002TIOYVW&location=452)
 ### Location 605
 
 > Object-oriented design focuses more on the communication between objects than on the objects themselves.

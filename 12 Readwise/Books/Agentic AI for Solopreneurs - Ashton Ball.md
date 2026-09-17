@@ -1,9 +1,9 @@
 ---
 author: Ashton Ball
 tags: readwise_inbox, readwise
-created: Friday 17th July 2026 16:00
-modified: Friday 17th July 2026 16:00
-last_highlight: 2026-07-14 04:56:00+00:00
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
+last_highlight: 2026-08-21 04:56:00+00:00
 ---
 # Agentic AI for Solopreneurs
 
@@ -145,3 +145,23 @@ last_highlight: 2026-07-14 04:56:00+00:00
 > Causes, consequences, and strategies to deal with information overload: A scoping review.
 
  * [Location 324](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=324)
+### Location 737
+
+> You risk dropping the ball if you try to automate the outreach first, without having a reliable system for collecting and storing info.
+
+ * [Location 737](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=737)
+### Location 744
+
+> only automate what’s already working reliably.
+
+ * [Location 744](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=744)
+### Location 744
+
+> Use a tracking tool (even as simple as a shared document) that lists what’s automated, how it connects, and what to do if it breaks.
+
+ * [Location 744](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=744)
+### Location 995
+
+> grounding app selection and adoption in criteria, real-user insight, agile testing, and adaptive habits,
+
+ * [Location 995](https://readwise.io/to_kindle?action=open&asin=B0FXH5RY7F&location=995)

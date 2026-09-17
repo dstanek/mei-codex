@@ -1,13 +1,13 @@
 ---
 author: linkedin.com
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2025-02-06 17:42:45.499870+00:00
 ---
 # (27) Post | LinkedIn
 
-![rw-book-cover](https://readwise-assets.s3.amazonaws.com/media/uploaded_book_covers/profile_1479877/c45fy346jw096z9pbphyyhdz7)
+![rw-book-cover](https://readwise-assets.s3.amazonaws.com/media/uploaded_book_covers/profile_1479877/a786984bbd13417e9f333f9b18abb08e.jpg)
 
 ## Metadata
 - Author: [[linkedin.com]]

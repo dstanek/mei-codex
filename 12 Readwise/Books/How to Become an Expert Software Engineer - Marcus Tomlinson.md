@@ -1,13 +1,13 @@
 ---
 author: Marcus Tomlinson
 tags: readwise_inbox, readwise
-created: Monday 2nd February 2026 11:43
-modified: Monday 2nd February 2026 11:43
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2019-06-23 04:56:00+00:00
 ---
 # How to Become an Expert Software Engineer
 
-![rw-book-cover](https://m.media-amazon.com/images/I/81ywLEvttOL._SY160.jpg)
+![rw-book-cover](https://m.media-amazon.com/images/I/81ywLEvttOL._SL500_.jpg)
 
 ## Metadata
 - Author: [[Marcus Tomlinson]]

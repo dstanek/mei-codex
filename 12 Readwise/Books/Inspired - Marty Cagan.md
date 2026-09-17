@@ -1,13 +1,13 @@
 ---
 author: Marty Cagan
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2014-07-04 04:56:00+00:00
 ---
 # Inspired
 
-![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/41iRRYgWxYL._SL200_.jpg)
+![rw-book-cover](https://images-na.ssl-images-amazon.com/images/I/41iRRYgWxYL._SL500_.jpg)
 
 ## Metadata
 - Author: [[Marty Cagan]]

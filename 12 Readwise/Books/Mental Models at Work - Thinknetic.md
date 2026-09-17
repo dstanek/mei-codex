@@ -1,13 +1,13 @@
 ---
 author: Thinknetic
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2024-07-12 04:56:00+00:00
 ---
 # Mental Models at Work
 
-![rw-book-cover](https://m.media-amazon.com/images/I/71fQ0B50sYL._SY160.jpg)
+![rw-book-cover](https://m.media-amazon.com/images/I/71fQ0B50sYL._SL500_.jpg)
 
 ## Metadata
 - Author: [[Thinknetic]]

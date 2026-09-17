@@ -1,8 +1,8 @@
 ---
 author: Richmond Alake
 tags: readwise_inbox, readwise
-created: Friday 11th September 2026 09:28
-modified: Friday 11th September 2026 09:28
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2026-09-11 13:08:34.969005+00:00
 ---
 # The Agent Loop Decoded

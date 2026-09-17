@@ -1,13 +1,13 @@
 ---
 author: William Howard
 tags: readwise_inbox, readwise
-created: Sunday 26th October 2025 03:54
-modified: Sunday 26th October 2025 03:54
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2025-06-05 04:56:00+00:00
 ---
 # How to Talk Effectively
 
-![rw-book-cover](https://m.media-amazon.com/images/I/71wSqftC-VL._SY160.jpg)
+![rw-book-cover](https://m.media-amazon.com/images/I/71wSqftC-VL._SL500_.jpg)
 
 ## Metadata
 - Author: [[William Howard]]

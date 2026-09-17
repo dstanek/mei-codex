@@ -1,13 +1,13 @@
 ---
 author: Thinknetic
 tags: readwise_inbox, readwise
-created: Saturday 28th February 2026 09:37
-modified: Saturday 28th February 2026 09:37
+created: Thursday 17th September 2026 17:25
+modified: Thursday 17th September 2026 17:25
 last_highlight: 2026-02-28 04:56:00+00:00
 ---
 # The Intelligent Reader’s Guide to Reading
 
-![rw-book-cover](https://m.media-amazon.com/images/I/71hQDwBuLYL._SY160.jpg)
+![rw-book-cover](https://m.media-amazon.com/images/I/71hQDwBuLYL._SL500_.jpg)
 
 ## Metadata
 - Author: [[Thinknetic]]
