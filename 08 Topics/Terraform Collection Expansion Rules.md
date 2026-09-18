@@ -28,10 +28,7 @@ Rules for expanding collections in Terraform using `count` and `for_each`.
 ## Related Notes
 
 ```dataview
-LIST
-FROM ""
-WHERE contains(lower(file.name), "terraform")
-LIMIT 10
+LIST FROM [[]] AND !"99 Meta"
 ```
 
 ## Resources

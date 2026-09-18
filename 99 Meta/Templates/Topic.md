@@ -16,10 +16,7 @@ aliases: []
 ## Related Notes
 
 ```dataview
-LIST
-FROM "" 
-WHERE contains(file.outlinks, this.file.link) OR contains(file.tags, this.file.name)
-LIMIT 10
+LIST FROM [[]] AND !"99 Meta"
 ```
 
 ## Resources

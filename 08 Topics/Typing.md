@@ -20,10 +20,7 @@ Type systems in programming languages — how types are checked and enforced.
 ## Related Notes
 
 ```dataview
-LIST
-FROM ""
-WHERE contains(lower(file.name), "typing") OR contains(lower(file.name), "python")
-LIMIT 10
+LIST FROM [[]] AND !"99 Meta"
 ```
 
 ## Resources
