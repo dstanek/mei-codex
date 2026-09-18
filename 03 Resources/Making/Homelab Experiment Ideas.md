@@ -1,7 +1,9 @@
 ---
 type: resource
+created: 2026-08-15 19:55
 status: reference
 domain: personal
+tags: []
 ---
 
 # Homelab Experiment Ideas

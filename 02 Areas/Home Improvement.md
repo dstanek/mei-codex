@@ -1,7 +1,9 @@
 ---
 type: resource
+created: 2026-08-05 12:51
 status: reference
 domain: personal
+tags: []
 ---
 
 # Home Improvement

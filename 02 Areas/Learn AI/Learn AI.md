@@ -1,12 +1,8 @@
 ---
-title: Learn AI
 type: area
-status: active
 domain: personal
-priority:
 created:
 todoist:
-drive:
 tags: []
 ---
 

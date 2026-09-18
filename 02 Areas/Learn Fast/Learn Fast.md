@@ -1,12 +1,8 @@
 ---
-title: Learn Fast
 type: area
-status: active
 domain: learn-fast
-priority:
 created: 2026-08-18 00:00
 todoist:
-drive: https://drive.google.com/drive/folders/1MKDX5LpF8Bpeidkz39H-bSkQgbStrDOn
 tags: []
 ---
 

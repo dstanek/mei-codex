@@ -1,12 +1,8 @@
 ---
-title: Weight loss
 type: area
-status: active
 domain: personal
-priority:
 created: 2026-08-18 00:00
 todoist:
-drive: https://drive.google.com/drive/folders/1Bd6vHJi6wGdvdQfsBUw5VLpG6tD67NBs
 tags: []
 ---
 

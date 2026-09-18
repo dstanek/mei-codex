@@ -1,6 +1,8 @@
 ---
 type: topic
+created: 2026-09-18 02:11
 aliases: [Type Systems, Type Theory]
+tags: []
 ---
 
 # Typing

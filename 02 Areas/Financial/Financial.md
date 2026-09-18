@@ -1,12 +1,8 @@
 ---
-title: Financial
 type: area
-status: active
 domain: personal
-priority:
 created: 2026-08-18 00:00
 todoist:
-drive: https://drive.google.com/drive/folders/13Etb92Q_zMjatNY_Pt-k8L8FZ2IJLMmV
 tags: []
 ---
 

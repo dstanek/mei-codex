@@ -1,5 +1,7 @@
 ---
 type: meta
+created: 2026-09-17 18:25
+tags: []
 ---
 # Note Intake Process
 

@@ -1,7 +1,9 @@
 ---
 type: resource
+created: 2026-02-11 13:12
 status: reference
 domain: hpe
+tags: []
 ---
 
 1. Split up the Helm charts

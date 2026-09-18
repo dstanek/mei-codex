@@ -1,5 +1,7 @@
 ---
 type: meta
+created: 2026-09-17 14:22
+tags: []
 ---
 # Email Rules
 

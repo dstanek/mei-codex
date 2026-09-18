@@ -1,12 +1,8 @@
 ---
-title: Goal Setting
 type: area
-status: active
 domain: personal
-priority:
 created: 2026-08-06 00:00
 todoist:
-drive:
 tags: []
 ---
 

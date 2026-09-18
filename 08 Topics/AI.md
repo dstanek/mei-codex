@@ -1,6 +1,8 @@
 ---
 type: topic
+created: 2026-09-17 20:55
 aliases: [Artificial Intelligence, Machine Learning]
+tags: []
 ---
 
 # AI
