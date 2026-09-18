@@ -1,0 +1,6 @@
+- Applie Final Cut Pro
+- ByteByteGo
+- Nate
+- Namecheap
+- Anything else on Substack?
+- 
