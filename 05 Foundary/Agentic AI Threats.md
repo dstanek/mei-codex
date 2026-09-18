@@ -20,3 +20,8 @@ Prompt or policy override
 Resource abuse and denial of service
 : overwhelm AI systems and degrade performance using lots of API call or computationally intensive tasks
 
+---
+
+## Links
+
+- [[AI]]

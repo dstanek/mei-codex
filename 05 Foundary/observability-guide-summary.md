@@ -173,3 +173,9 @@ Cause-level alerts can still be useful, but they should generally support diagno
 4. Correlation IDs connect telemetry across distributed services.
 5. Tail sampling captures important traces more accurately but costs more to operate.
 6. Alerts should usually be based on user impact, with lower-level signals used to identify the cause.
+
+---
+
+## Links
+
+- [[AI]]

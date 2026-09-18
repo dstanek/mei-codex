@@ -6,3 +6,9 @@ tags:
   - research
 ---
 RAGAS + Human evals
+
+---
+
+## Links
+
+- [[AI]]
