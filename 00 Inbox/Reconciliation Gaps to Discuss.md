@@ -1,5 +1,4 @@
 ---
-title: Reconciliation Gaps to Discuss
 type: meta
 created: 2026-08-18 00:00
 tags: [reconciliation]

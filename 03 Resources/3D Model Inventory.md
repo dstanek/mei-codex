@@ -1,5 +1,4 @@
 ---
-title: 3D Model Inventory
 type: topic
 created: 2026-08-17 20:45
 tags: [3d-printing, inventory]

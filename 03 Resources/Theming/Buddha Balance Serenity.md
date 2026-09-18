@@ -1,3 +1,11 @@
+---
+type: resource
+status: reference
+domain: personal
+created: 2026-02-18 18:41
+tags: []
+---
+
 ## Claude Prompt 
 I'm creating a theme for my Hyprland/Arch Linux environment. I've used an image to create a simple color palette. I would like to create some variations in the colors to expand on the palette.
 

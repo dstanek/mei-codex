@@ -1,3 +1,9 @@
+---
+type: zettel
+created: 2025-03-26 08:17
+tags: []
+---
+
 Prompt:
 * Role (personal) specification
 * Task Instruction

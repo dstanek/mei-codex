@@ -1,5 +1,7 @@
 ---
-type: zettel
+type: literature
+source:
+author:
 created: 2026-07-19 09:14
 tags: []
 ---

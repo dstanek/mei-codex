@@ -1,6 +1,9 @@
 ---
 type: resource
 status: reference
+domain: personal
+created: 2026-09-18 02:43
+tags: []
 ---
 # Note Emoji Cheatsheet
 
