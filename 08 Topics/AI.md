@@ -17,10 +17,7 @@ Artificial Intelligence — systems that can perform tasks typically requiring h
 ## Related Notes
 
 ```dataview
-LIST
-FROM "00 Inbox" OR "01 Projects" OR "03 Resources"
-WHERE contains(lower(file.name), "ai") OR contains(lower(file.name), "gpt") OR contains(lower(file.name), "llm")
-LIMIT 10
+LIST FROM [[]] AND !"99 Meta"
 ```
 
 ## Resources
